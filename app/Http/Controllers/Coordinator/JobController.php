@@ -273,7 +273,7 @@ class JobController extends Controller
         $no = 1;
         $year = Carbon::now()->year;
 
-        $jobs = Job::whereYear('date', '=', $year)->get();
+        $jobs = Job::whereYear('plan_date', '=', $year)->get();
 
         foreach ($jobs as $job) {
             if ($job->student->course_id == $course->id) {
