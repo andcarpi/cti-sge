@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Nova proposta - SGE CTI')
+@section('title', 'Nova proposta')
 
 @section('content_header')
     <h1>Adicionar nova proposta de estágio</h1>
@@ -207,11 +207,9 @@
                                 style="width: 100%">
 
                             @foreach($courses as $course)
-
                                 <option
                                     value="{{ $course->id }}" {{ in_array($course->id, (old('courses') ?? [])) ? "selected" : "" }}>
                                     {{ $course->name }}</option>
-
                             @endforeach
 
                         </select>

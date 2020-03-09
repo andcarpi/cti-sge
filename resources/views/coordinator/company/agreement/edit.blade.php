@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar convênio - SGE CTI')
+@section('title', 'Editar convênio')
 
 @section('content_header')
     <h1>Editar convênio</h1>
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('coordenador.empresa.convenio.alterar', $agreement->id) }}"
+    <form class="form-horizontal" action="{{ route('coordenador.empresa.convenio.alterar', ['id' => $agreement->id]) }}"
           method="post">
         @method('PUT')
         @csrf

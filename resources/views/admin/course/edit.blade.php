@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar curso - SGE CTI')
+@section('title', 'Editar curso')
 
 @section('content_header')
     <h1>Editar curso</h1>
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('admin.curso.alterar', $course->id) }}" method="post">
+    <form class="form-horizontal" action="{{ route('admin.curso.alterar', ['id' => $course->id]) }}" method="post">
         @method('PUT')
         @csrf
 
@@ -37,12 +37,10 @@
                                 <select class="form-control selection" id="inputColor" name="color">
 
                                     @foreach($colors as $color)
-
                                         <option value="{{ $color->id }}"
                                             {{ (old('color') ?? $course->color_id) == $color->id ? 'selected=selected' : '' }}>
                                             {{ __("colors.{$color->name}") }}
                                         </option>
-
                                     @endforeach
 
                                 </select>

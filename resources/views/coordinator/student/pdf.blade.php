@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Relatório PDF - SGE CTI')
+@section('title', 'Relatório PDF')
 
 @section('css')
     <style type="text/css">
@@ -136,13 +136,11 @@
                                             multiple>
 
                                         @foreach($courses as $course)
-
                                             <option
                                                 value="{{ $course->id }}"
                                                 {{ in_array($course->id, (old('courses') ?? [])) ? "selected" : "" }}>
                                                 {{ $course->name }}
                                             </option>
-
                                         @endforeach
 
                                     </select>

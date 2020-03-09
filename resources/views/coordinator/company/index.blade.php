@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Empresas - SGE CTI')
+@section('title', 'Empresas')
 
 @section('content_header')
     <h1>Empresas</h1>
@@ -35,7 +35,6 @@
 
                 <tbody>
                 @foreach($companies as $company)
-
                     <tr>
                         <td>{{ $company->formatted_cpf_cnpj }}</td>
                         <td>{{ $company->name }} {{ $company->fantasy_name != null ? " ($company->fantasy_name)" : '' }}</td>
@@ -52,7 +51,6 @@
                                href="{{ route('coordenador.empresa.editar', ['id' => $company->id]) }}">Editar</a>
                         </td>
                     </tr>
-
                 @endforeach
                 </tbody>
             </table>

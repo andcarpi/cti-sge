@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Novo relatório bimestral - SGE CTI')
+@section('title', 'Novo relatório bimestral')
 
 @section('content_header')
     <h1>Adicionar relatório bimestral</h1>
@@ -23,12 +23,10 @@
                         <select class="form-control selection" id="inputInternship" name="internship">
 
                             @foreach($internships as $internship)
-
                                 <option value="{{ $internship->id }}"
                                     {{ (old('internship') ?? $i) == $internship->id ? 'selected=selected' : '' }}>
                                     {{ $internship->ra }} - {{ $internship->student->nome }}
                                 </option>
-
                             @endforeach
 
                         </select>

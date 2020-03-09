@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar setor - SGE CTI')
+@section('title', 'Editar setor')
 
 @section('content_header')
     <h1>Editar setor</h1>
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('coordenador.empresa.setor.alterar', $sector->id) }}"
+    <form class="form-horizontal" action="{{ route('coordenador.empresa.setor.alterar', ['id' => $sector->id]) }}"
           method="post">
         @method('PUT')
         @csrf

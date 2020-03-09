@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Setores empresariais - SGE CTI')
+@section('title', 'Setores empresariais')
 
 @section('content_header')
     <h1>Setores empresariais</h1>
@@ -34,7 +34,6 @@
 
                 <tbody>
                 @foreach($sectors as $sector)
-
                     <tr>
                         <td>{{ $sector->name }}</td>
                         <td>{{ ($sector->active) ? 'Sim' : 'Não' }}</td>
@@ -44,7 +43,6 @@
                                href="{{ route('coordenador.empresa.setor.editar', ['id' => $sector->id]) }}">Editar</a>
                         </td>
                     </tr>
-
                 @endforeach
                 </tbody>
             </table>

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar termo aditivo - SGE CTI')
+@section('title', 'Editar termo aditivo')
 
 @section('content_header')
     <h1>Editar termo aditivo</h1>
@@ -9,7 +9,7 @@
 @section('content')
     @include('modals.coordinator.cloneSchedule')
 
-    <form class="form-horizontal" action="{{ route('coordenador.estagio.aditivo.alterar', $amendment->id) }}"
+    <form class="form-horizontal" action="{{ route('coordenador.estagio.aditivo.alterar', ['id' => $amendment->id]) }}"
           method="post">
         @method('PUT')
         @csrf

@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Backup e restauração - SGE CTI')
+@section('title', 'Backup e restauração')
 
 @section('content_header')
     <h1>Backup e restauração</h1>
@@ -208,9 +208,7 @@
         });
 
         @foreach($days as $day)
-
         jQuery('#input{{ ucfirst($day) }}').iCheck('check');
-
         @endforeach
     </script>
 @endsection

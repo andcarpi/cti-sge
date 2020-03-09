@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Novo convênio - SGE CTI')
+@section('title', 'Novo convênio')
 
 @section('content_header')
     <h1>Adicionar novo conênio</h1>
@@ -24,12 +24,10 @@
                                 style="width: 100%">
 
                             @foreach($companies as $company)
-
                                 <option
                                     value="{{ $company->id }}" {{ (old('company') ?? $c) == $company->id ? 'selected=selected' : '' }}>
                                     {{ $company->formatted_cpf_cnpj }} - {{ $company->name }} {{ $company->fantasy_name != null ? " ($company->fantasy_name)" : '' }}
                                 </option>
-
                             @endforeach
 
                         </select>

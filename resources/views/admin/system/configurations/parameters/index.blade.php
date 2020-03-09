@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Parâmetros do sistema - SGE CTI')
+@section('title', 'Parâmetros do sistema')
 
 @section('content_header')
     <h1>Parâmetros do sistema</h1>
@@ -40,7 +40,6 @@
                 <tbody>
 
                 @foreach($configs as $config)
-
                     <tr>
                         <td>{{ $config->name }}</td>
                         <td>{{ $config->cep }}</td>
@@ -55,7 +54,6 @@
                                 href="{{ route('admin.configuracao.parametros.editar', ['id' => $config->id]) }}">Editar</a>
                         </td>
                     </tr>
-
                 @endforeach
 
                 </tbody>

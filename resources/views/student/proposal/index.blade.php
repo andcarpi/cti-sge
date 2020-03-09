@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Propostas de estágio - SGE CTI')
+@section('title', 'Propostas de estágio')
 
 @section('content_header')
     <h1>Propostas de estágio</h1>
@@ -33,7 +33,6 @@
 
                 <tbody>
                 @foreach($proposals as $proposal)
-
                     <tr>
                         <td>{{ $proposal->company->name }} {{ $proposal->company->fantasy_name != null ? "({$proposal->company->fantasy_name})" : '' }}</td>
                         <td>{{ $proposal->remuneration > 0.0 ? 'R$' . number_format($proposal->remuneration, 2, ',', '.') : 'Sem' }}</td>
@@ -43,7 +42,6 @@
                             <a href="{{ route('aluno.proposta.detalhes', ['id' => $proposal->id]) }}">Detalhes</a>
                         </td>
                     </tr>
-
                 @endforeach
                 </tbody>
             </table>

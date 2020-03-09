@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class Broker extends \Jasny\SSO\Broker
 {
-    public function __construct($cookie_lifetime = 3600)
+    public function __construct(int $cookie_lifetime = 3600)
     {
         $url = config('broker.url');
         $broker = config('broker.name');
@@ -19,6 +19,11 @@ class Broker extends \Jasny\SSO\Broker
         $this->token = null;
 
         $this->saveToken();
+    }
+
+    public function createUser($data)
+    {
+        $data;
     }
 
     public function serverLoginPage()
@@ -32,10 +37,21 @@ class Broker extends \Jasny\SSO\Broker
         return $this->generateCommandUrl('loginForm', $parameters);
     }
 
+    public function serverPasswordPage()
+    {
+        $parameters = [
+            'return_url' => $this->getPreviousUrl(),
+            'broker' => $this->broker,
+            'session_id' => $this->getSessionId(),
+        ];
+
+        return $this->generateCommandUrl('passwordForm', $parameters);
+    }
+
     /**
      * Attach client session to broker session in SSO server.
      *
-     * @param null $returnUrl
+     * @param null|string $returnUrl
      * @return void
      */
     public function attach($returnUrl = null)
@@ -44,7 +60,7 @@ class Broker extends \Jasny\SSO\Broker
             'return_url' => $this->getCurrentUrl(),
             'broker' => $this->broker,
             'token' => $this->token,
-            'checksum' => hash('sha256', 'attach' . $this->token . $this->secret)
+            'checksum' => hash('sha256', "attach{$this->token}{$this->secret}")
         ];
 
         $attachUrl = $this->generateCommandUrl('attach', $parameters);
@@ -70,14 +86,14 @@ class Broker extends \Jasny\SSO\Broker
     /**
      * Login client to SSO server with user credentials.
      *
-     * @param string $email
-     * @param string $password
+     * @param null|string $email
+     * @param null|string $password
      * @param bool $remember
      *
      * @return bool
      * @throws GuzzleException
      */
-    public function login($email = null, $password = null, $remember = false)
+    public function login($email = null, $password = null, bool $remember = false)
     {
         $this->userinfo = $this->makeRequest('POST', 'login', ["email" => $email, "password" => $password, "remember" => $remember]);
 
@@ -116,11 +132,11 @@ class Broker extends \Jasny\SSO\Broker
             $query = '?' . http_build_query($parameters);
         }
 
-        if ($command == 'loginForm') {
-            return $this->url . '/loginForm' . $query;
+        if ($command == 'loginForm' || $command == 'passwordForm') {
+            return "{$this->url}/{$command}{$query}";
         }
 
-        return $this->url . '/api/sso/' . $command . $query;
+        return "{$this->url}/api/sso/{$command}{$query}";
     }
 
     /**
@@ -130,7 +146,7 @@ class Broker extends \Jasny\SSO\Broker
      */
     protected function getSessionId()
     {
-        $checksum = hash('sha256', 'session' . $this->token . $this->secret);
+        $checksum = hash('sha256', "session{$this->token}{$this->secret}");
         return "SSO-{$this->broker}-{$this->token}-$checksum";
     }
 
@@ -184,7 +200,7 @@ class Broker extends \Jasny\SSO\Broker
 
         $headers = [
             'Accept' => 'application/json',
-            'Authorization' => 'Bearer ' . $this->getSessionId(),
+            'Authorization' => "Bearer {$this->getSessionId()}",
         ];
 
         switch ($method) {
@@ -228,7 +244,7 @@ class Broker extends \Jasny\SSO\Broker
             $query .= http_build_query($parameters);
         }
 
-        app()->abort($httpResponseCode, '', ['Location' => $url . $query]);
+        app()->abort($httpResponseCode, '', ['Location' => "{$url}{$query}"]);
     }
 
     /**
@@ -239,6 +255,16 @@ class Broker extends \Jasny\SSO\Broker
     protected function getCurrentUrl()
     {
         return url()->full();
+    }
+
+    /**
+     * Getting previous url which can be used as return to url.
+     *
+     * @return string
+     */
+    protected function getPreviousUrl()
+    {
+        return url()->previous();
     }
 
     /**

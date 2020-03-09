@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Configurações do curso - SGE CTI')
+@section('title', 'Configurações do curso')
 
 @section('content_header')
     <h1>Configurações do curso {{ $course->name }}</h1>
@@ -21,7 +21,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('admin.curso.configuracao.novo', $course->id) }}"
+            <a id="addLink" href="{{ route('admin.curso.configuracao.novo', ['id' => $course->id]) }}"
                class="btn btn-success">Adicionar configuração</a>
 
             <table id="courseConfigurations" class="table table-bordered table-hover">
@@ -40,7 +40,6 @@
                 <tbody>
 
                 @foreach($configurations as $configuration)
-
                     <tr>
                         <td>{{ $configuration->min_year }}</td>
                         <td>{{ $configuration->min_semester }}</td>
@@ -54,7 +53,6 @@
                                href="{{ route('admin.curso.configuracao.editar', ['id' => $course->id, 'id_config' => $configuration->id]) }}">Editar</a>
                         </td>
                     </tr>
-
                 @endforeach
 
                 </tbody>

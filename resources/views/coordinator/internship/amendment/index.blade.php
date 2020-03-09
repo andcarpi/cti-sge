@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Termos aditivos - SGE CTI')
+@section('title', 'Termos aditivos')
 
 @section('content_header')
     <h1>Termos aditivos @if(isset($internship)) de {{ $internship->student->nome }} @endif</h1>
@@ -45,7 +45,6 @@
 
                 <tbody>
                 @foreach($amendments as $amendment)
-
                     <tr>
                         @if(!isset($internship))
                             <td>{{ $amendment->internship->ra }} - {{ $amendment->internship->student->nome }}</td>
@@ -58,7 +57,6 @@
                                href="{{ route('coordenador.estagio.aditivo.editar', ['id' => $amendment->id]) }}">Editar</a>
                         </td>
                     </tr>
-
                 @endforeach
                 </tbody>
             </table>
@@ -83,7 +81,7 @@
                 },
 
                 'Empresa-pre': function (a) {
-                    return a.replace(/[\d]{2}\.[\d]{3}\.[\d]{3}\/[\d]{4}-[\d]{2} - /g, '').replace(/[\d]{3}\.[\d]{3}\.[\d]{3}-[\d]{2}/g, '');
+                    return a.replace(/[\d]{2}\.[\d]{3}\.[\d]{3}\/[\d]{4}-[\d]{2} - /g, '').replace(/[\d]{3}\.[\d]{3}\.[\d]{3}-[\d]{2} - /g, '');
                 },
 
                 'Empresa-asc': function (a, b) {

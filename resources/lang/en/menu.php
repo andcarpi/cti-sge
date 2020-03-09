@@ -13,6 +13,7 @@ return [
     'system' => 'SYSTEM',
     'configuration' => 'Configuration',
 
+    'sso' => 'SSO',
     'users' => 'Users',
 
     'courseConfig' => 'General course configurations',
@@ -30,6 +31,10 @@ return [
     'administration' => 'ADMINISTRATION',
     'courses' => 'Courses',
     'coordinators' => 'Coordinators',
+
+
+    'secretary' => 'SECRETARY',
+    'graduation' => 'Graduation',
 
 
     'companies' => 'Companies',
@@ -56,7 +61,5 @@ return [
     'pdf' => 'PDF',
 
     'documentation' => 'Documentation',
-
-    'graduation' => 'Graduation',
 
 ];
