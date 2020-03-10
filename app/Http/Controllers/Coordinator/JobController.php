@@ -281,8 +281,6 @@ class JobController extends Controller
             }
         }
 
-        
-
         while (strlen($no) < 3) {
             $no = "0{$no}";
         }

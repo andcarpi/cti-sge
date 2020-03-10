@@ -65,11 +65,20 @@
                 <dt class="col-sm-2">Nome fantasia</dt>
                 <dd class="col-sm-10">{{ $job->company->fantasy_name ?? '(Não informado)' }}</dd>
 
+                <dt class="col-sm-2">Representante</dt>
+                <dd class="col-sm-10">{{ $job->company->representative_name }}</dd>
+
+                <dt class="col-sm-2">Setor</dt>
+                <dd class="col-sm-10">{{ $job->sector->name }}</dd>
+
                 <dt class="col-sm-2">Data de início</dt>
                 <dd class="col-sm-10">{{ $job->start_date->format("d/m/Y") }}</dd>
 
                 <dt class="col-sm-2">Data de término</dt>
                 <dd class="col-sm-10">{{ $job->end_date->format("d/m/Y") }}</dd>
+
+                <dt class="col-sm-2">Data do plano</dt>
+                <dd class="col-sm-10">{{ $job->plan_date->format("d/m/Y") }}</dd>
 
                 <dt class="col-sm-2">CTPS</dt>
                 <dd class="col-sm-10">{{ $job->ctps }}</dd>

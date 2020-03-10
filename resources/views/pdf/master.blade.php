@@ -14,6 +14,7 @@
 
         h1, h2, h3, h4, h5, h6 {
             color: #222222;
+            font-weight: bold;
         }
 
         body, h1, h2, h3, h4, h5, h6 {
@@ -96,7 +97,7 @@
 </header>
 
 <footer>
-    @if(!isset($page_number) || (isset($page_number) && $page_number))
+    @if($page_number ?? true))
         <div>
             <div class="pull-right page-number"></div>
         </div>

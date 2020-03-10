@@ -189,19 +189,28 @@
                     <dt class="col-sm-2">Nome fantasia</dt>
                     <dd class="col-sm-10">{{ $student->job->company->fantasy_name ?? '(Não informado)' }}</dd>
 
+                    <dt class="col-sm-2">Representante</dt>
+                    <dd class="col-sm-10">{{ $student->job->company->representative_name }}</dd>
+
+                    <dt class="col-sm-2">Setor</dt>
+                    <dd class="col-sm-10">{{ $student->job->sector->name }}</dd>
+
                     <dt class="col-sm-2">Data de início</dt>
                     <dd class="col-sm-10">{{ $student->job->start_date->format("d/m/Y") }}</dd>
 
                     <dt class="col-sm-2">Data de término</dt>
                     <dd class="col-sm-10">{{ $student->job->end_date->format("d/m/Y") }}</dd>
 
+                    <dt class="col-sm-2">Data do plano</dt>
+                    <dd class="col-sm-10">{{ $student->job->plan_date->format("d/m/Y") }}</dd>
+
                     <dt class="col-sm-2">CTPS</dt>
-                    <dd class="col-sm-10">{{ $student->job->ctps }}</dd>
+                    <dd class="col-sm-10">{{ $student->job->formatted_ctps }}</dd>
                 </dl>
 
-                @if($job->state_id == \App\Models\State::FINISHED)
+                @if($student->job->state_id == \App\Models\State::FINISHED)
                     <div class="btn-group">
-                        <a href="{{ route('coordenador.trabalho.pdf', ['id' => $job->id]) }}" target="_blank"
+                        <a href="{{ route('coordenador.trabalho.pdf', ['id' => $student->job->id]) }}" target="_blank"
                            class="btn btn-default">Imprimir relatório</a>
                     </div>
                 @endif

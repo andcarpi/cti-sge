@@ -60,20 +60,6 @@ class SSOAutoLogin
                     // ... we will authenticate our client.
                     Auth::loginUsingId($response['data']['id'], true);
                 }
-
-                // Sync the roles
-                /*$roles = $response['data']['roles'];
-                $roles = array_map(function ($role) {
-                    if (!Role::where('name', '=', $role['name'])->first()) {
-                        Role::create($role);
-                    }
-
-                    return $role['name'];
-                }, $roles);
-
-                if (!Auth::user()->hasAllRoles(collect($roles))) {
-                    Auth::user()->syncRoles($roles);
-                }*/
             }
         }
 

@@ -245,7 +245,7 @@ class StudentController extends Controller
         }
 
         if (!Storage::disk('local')->exists("students/{$student->matricula}.jpg")) {
-            abort(404);
+            $student->matricula = 'nophoto';
         }
 
         if ($request->has('w') && $request->has('h') && ctype_digit($request->get('w')) && ctype_digit($request->get('h'))) {

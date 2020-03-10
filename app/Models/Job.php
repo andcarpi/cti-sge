@@ -51,8 +51,8 @@ class Job extends Model
      * @var array
      */
     protected $fillable = [
-        'ra', 'ctps', 'company_id', 'coordinator_id', 'state_id', 'start_date', 'end_date', 'protocol', 'observation',
-        'reason_to_cancel', 'canceled_at', 'active',
+        'ra', 'ctps', 'company_id', 'sector_id', 'coordinator_id', 'state_id', 'start_date', 'end_date', 'plan_date',
+        'protocol', 'approval_number', 'observation', 'reason_to_cancel', 'canceled_at', 'active',
     ];
 
     /**

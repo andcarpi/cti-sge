@@ -63,6 +63,11 @@
         </tr>
 
         <tr>
+            <td class="text-right"><b>Representante da empresa: </b></td>
+            <td>{{ $job->company->representative_name }}</td>
+        </tr>
+
+        <tr>
             <td class="text-right"><b>Período de trabalho: </b></td>
             <td>
                 {{ $job->start_date->format("d/m/Y") }} a {{ $job->end_date->format("d/m/Y") }}
@@ -117,6 +122,6 @@
     <div style="font-size: 7pt; text-align: center;">
         <span>{{ $sysConfig->name }} - Coordenadoria de {{ $job->coordinator->course->name }}</span><br/>
         <span>{{ $sysConfig->street }}, {{ $sysConfig->number }} - CEP {{ $sysConfig->formatted_cep }} {{ $sysConfig->city }}, {{ $sysConfig->uf }} Brasil.</span><br/>
-        <span>Tel {{ $sysConfig->formatted_phone }} Fax {{ $sysConfig->formatted_fax }}</span>
+        <span>Tel {{ $sysConfig->formatted_phone }} - www.cti.feb.unesp.br</span>
     </div>
 @endsection
