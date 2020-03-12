@@ -83,32 +83,32 @@
                                 <tr>
                                     <td>
                                         <input name="days[]" value="mon" id="inputMonday" type="checkbox"
-                                               class="iCheckbox">
+                                               class="iCheckbox" checked>
                                     </td>
 
                                     <td>
                                         <input name="days[]" value="tue" id="inputTuesday" type="checkbox"
-                                               class="iCheckbox">
+                                               class="iCheckbox" checked>
                                     </td>
 
                                     <td>
                                         <input name="days[]" value="wed" id="inputWednesday" type="checkbox"
-                                               class="iCheckbox">
+                                               class="iCheckbox" checked>
                                     </td>
 
                                     <td>
                                         <input name="days[]" value="thu" id="inputThursday" type="checkbox"
-                                               class="iCheckbox">
+                                               class="iCheckbox" checked>
                                     </td>
 
                                     <td>
                                         <input name="days[]" value="fri" id="inputFriday" type="checkbox"
-                                               class="iCheckbox">
+                                               class="iCheckbox" checked>
                                     </td>
 
                                     <td>
                                         <input name="days[]" value="sat" id="inputSaturday" type="checkbox"
-                                               class="iCheckbox">
+                                               class="iCheckbox" checked>
                                     </td>
                                 </tr>
                                 </tbody>
