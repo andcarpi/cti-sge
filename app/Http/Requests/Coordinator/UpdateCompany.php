@@ -31,7 +31,7 @@ class UpdateCompany extends FormRequest
         $company = Company::findOrFail($this->route('id'));
 
         return [
-            'ie' => ['nullable', new Integer, 'digits:10'],
+            'ie' => ['nullable'],
             'active' => ['required', 'boolean'],
             'companyName' => ['required', 'max:191'],
             'fantasyName' => ['nullable', 'max:191'],
