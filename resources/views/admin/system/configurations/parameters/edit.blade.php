@@ -21,7 +21,7 @@
         </div>
     @endif
 
-    <form class="form-horizontal" action="{{ route('admin.configuracao.parametros.alterar', ['id' => $config->id]) }}"
+    <form class="form-horizontal" action="{{ route('admin.config.parameters.update', ['id' => $config->id]) }}"
           method="post">
         @method('PUT')
         @csrf

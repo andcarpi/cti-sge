@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('coordenador.empresa.supervisor.alterar', ['id' => $supervisor->id]) }}"
+    <form class="form-horizontal" action="{{ route('coordinator.company.supervisor.update', ['id' => $supervisor->id]) }}"
           method="post">
         @method('PUT')
         @csrf

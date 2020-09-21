@@ -10,7 +10,7 @@
     @include('modals.cnpj.loading')
     @include('modals.cnpj.error')
 
-    <form class="form-horizontal" action="{{ route('coordenador.trabalho.empresa.alterar', ['id' => $company->id]) }}"
+    <form class="form-horizontal" action="{{ route('coordinator.job.company.update', ['id' => $company->id]) }}"
           method="post">
         @method('PUT')
         @csrf

@@ -29,7 +29,7 @@
                     <div class="icon">
                         <i class="fa fa-{{ ($proposal->type == \App\Models\Proposal::INTERNSHIP) ? 'id-badge' : 'flask' }}"></i>
                     </div>
-                    <a href="{{ route('aluno.proposta.detalhes', ['id' => $proposal->id]) }}" class="small-box-footer">Mais detalhes <i class="fa fa-arrow-circle-right"></i></a>
+                    <a href="{{ route('student.proposal.show', ['id' => $proposal->id]) }}" class="small-box-footer">Mais detalhes <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         @endforeach

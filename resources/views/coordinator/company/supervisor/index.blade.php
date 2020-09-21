@@ -22,7 +22,7 @@
     <div class="box box-default">
         <div class="box-body">
             <a id="addLink" class="btn btn-success"
-               href="{{ (isset($company)) ? route('coordenador.empresa.supervisor.novo', ['c' => $company->id]) : route('coordenador.empresa.supervisor.novo') }}">
+               href="{{ (isset($company)) ? route('coordinator.company.supervisor.new', ['c' => $company->id]) : route('coordinator.company.supervisor.new') }}">
                 Adicionar supervisor
             </a>
 
@@ -50,7 +50,7 @@
 
                         <td>
                             <a class="text-aqua"
-                               href="{{ route('coordenador.empresa.supervisor.editar', ['id' => $supervisor->id]) }}">Editar</a>
+                               href="{{ route('coordinator.company.supervisor.edit', ['id' => $supervisor->id]) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach

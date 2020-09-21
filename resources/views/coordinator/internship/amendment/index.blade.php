@@ -24,7 +24,7 @@
             @if(!isset($internship) || (isset($internship) && $internship->state->id == 1))
 
                 <a id="addLink" class="btn btn-success"
-                   href="{{ (isset($internship)) ? route('coordenador.estagio.aditivo.novo', ['i' => $internship->id]) : route('coordenador.estagio.aditivo.novo') }}">
+                   href="{{ (isset($internship)) ? route('coordinator.internship.amendment.new', ['i' => $internship->id]) : route('coordinator.internship.amendment.new') }}">
                     Adicionar termo
                 </a>
 
@@ -54,7 +54,7 @@
                         <td>{{ $amendment->schedule != null ? 'Sim' : 'Não' }}</td>
                         <td>
                             <a class="text-aqua"
-                               href="{{ route('coordenador.estagio.aditivo.editar', ['id' => $amendment->id]) }}">Editar</a>
+                               href="{{ route('coordinator.internship.amendment.edit', ['id' => $amendment->id]) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach

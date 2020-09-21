@@ -10,7 +10,7 @@
     @include('modals.coordinator.company.supervisor.new')
     @include('modals.coordinator.cloneSchedule')
 
-    <form class="form-horizontal" action="{{ route('coordenador.estagio.alterar', ['id' => $internship->id]) }}" method="post">
+    <form class="form-horizontal" action="{{ route('coordinator.internship.update', ['id' => $internship->id]) }}" method="post">
         @method('PUT')
         @csrf
 

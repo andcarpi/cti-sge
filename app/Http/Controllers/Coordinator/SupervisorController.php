@@ -80,7 +80,7 @@ class SupervisorController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.supervisor.index')->with($params);
+        return redirect()->route('coordinator.company.supervisor.index')->with($params);
     }
 
     public function update($id, UpdateSupervisor $request)
@@ -112,7 +112,7 @@ class SupervisorController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.supervisor.index')->with($params);
+        return redirect()->route('coordinator.company.supervisor.index')->with($params);
     }
 
     public function destroy($id, DestroySupervisor $request)
@@ -138,6 +138,6 @@ class SupervisorController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
 
-        return redirect()->route('coordenador.empresa.supervisor.index')->with($params);
+        return redirect()->route('coordinator.company.supervisor.index')->with($params);
     }
 }

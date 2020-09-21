@@ -24,7 +24,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('coordenador.proposta.novo') }}" class="btn btn-success">Nova proposta</a>
+            <a id="addLink" href="{{ route('coordinator.proposal.new') }}" class="btn btn-success">Nova proposta</a>
 
             <table id="proposals" class="table table-bordered table-hover">
                 <thead>
@@ -55,17 +55,17 @@
                         @endif
 
                         <td>
-                            <a href="{{ route('coordenador.proposta.detalhes', ['id' => $proposal->id]) }}">Detalhes</a>
+                            <a href="{{ route('coordinator.proposal.show', ['id' => $proposal->id]) }}">Detalhes</a>
                             |
 
                             @if($proposal->deadline >= \Carbon\Carbon::now() && $proposal->approved_at != null)
-                                <a href="{{ route('coordenador.mensagem.index', ['p' => $proposal->id]) }}"
+                                <a href="{{ route('coordinator.message.index', ['p' => $proposal->id]) }}"
                                    class="text-green">Enviar email</a>
                                 |
                             @endif
 
                             <a class="text-aqua"
-                               href="{{ route('coordenador.proposta.editar', ['id' => $proposal->id]) }}">Editar</a>
+                               href="{{ route('coordinator.proposal.edit', ['id' => $proposal->id]) }}">Editar</a>
                             |
 
                             @if($proposal->deadline >= \Carbon\Carbon::now() && $proposal->approved_at == null && $proposal->reason_to_reject == null)

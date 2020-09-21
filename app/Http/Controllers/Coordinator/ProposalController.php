@@ -159,7 +159,7 @@ class ProposalController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.proposta.index')->with($params);
+        return redirect()->route('coordinator.proposal.index')->with($params);
     }
 
     public function update($id, UpdateProposal $request)
@@ -247,7 +247,7 @@ class ProposalController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.proposta.index')->with($params);
+        return redirect()->route('coordinator.proposal.index')->with($params);
     }
 
     public function destroy($id, DestroyProposal $request)
@@ -277,7 +277,7 @@ class ProposalController extends Controller
             return redirect()->route($validatedData->redirectTo)->with($params);
         }
 
-        return redirect()->route('coordenador.proposta.index')->with($params);
+        return redirect()->route('coordinator.proposal.index')->with($params);
     }
 
     public function approve($id, ApproveProposal $request)
@@ -303,7 +303,7 @@ class ProposalController extends Controller
                 'description' => "Proposta de estágio",
                 'text' => "O coordenador de {$cName} aprovou sua proposta de estágio.",
                 'icon' => 'bullhorn',
-                'url' => route('empresa.proposta.detalhes', ['id' => $proposal->id]),
+                'url' => route('company.proposal.show', ['id' => $proposal->id]),
             ]);
 
             $user = $proposal->company->user;
@@ -319,7 +319,7 @@ class ProposalController extends Controller
             return redirect()->route($validatedData->redirectTo)->with($params);
         }
 
-        return redirect()->route('coordenador.proposta.index')->with($params);
+        return redirect()->route('coordinator.proposal.index')->with($params);
     }
 
     public function reject($id, RejectProposal $request)
@@ -345,7 +345,7 @@ class ProposalController extends Controller
                 'description' => "Proposta de estágio",
                 'text' => "O coordenador de {$cName} rejeitou sua proposta de estágio. Clique para mais detalhes.",
                 'icon' => 'bullhorn',
-                'url' => route('empresa.proposta.detalhes', ['id' => $proposal->id]),
+                'url' => route('company.proposal.show', ['id' => $proposal->id]),
             ]);
 
             $user = $proposal->company->user;
@@ -361,6 +361,6 @@ class ProposalController extends Controller
             return redirect()->route($validatedData->redirectTo)->with($params);
         }
 
-        return redirect()->route('coordenador.proposta.index')->with($params);
+        return redirect()->route('coordinator.proposal.index')->with($params);
     }
 }

@@ -21,11 +21,6 @@ class Broker extends \Jasny\SSO\Broker
         $this->saveToken();
     }
 
-    public function createUser($data)
-    {
-        $data;
-    }
-
     public function serverLoginPage()
     {
         $parameters = [
@@ -147,7 +142,7 @@ class Broker extends \Jasny\SSO\Broker
     protected function getSessionId()
     {
         $checksum = hash('sha256', "session{$this->token}{$this->secret}");
-        return "SSO-{$this->broker}-{$this->token}-$checksum";
+        return "SSO-{$this->broker}-{$this->token}-{$checksum}";
     }
 
     /**

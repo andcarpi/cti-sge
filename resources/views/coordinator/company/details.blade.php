@@ -10,23 +10,23 @@
     <div class="box box-default">
         <div class="box-body">
             <div class="btn-group" style="display: inline-flex; margin: 0">
-                <a href="{{ route('coordenador.empresa.editar', ['id' => $company->id]) }}"
+                <a href="{{ route('coordinator.company.edit', ['id' => $company->id]) }}"
                    class="btn btn-primary">Editar empresa</a>
 
-                <a href="{{ route('coordenador.empresa.supervisor', ['id' => $company->id]) }}"
+                <a href="{{ route('coordinator.company.supervisor', ['id' => $company->id]) }}"
                    class="btn btn-default">Supervisores</a>
 
                 @if($company->active)
                     @if($company->hasAgreementAt())
-                        <a href="{{ route('coordenador.empresa.convenio.editar', ['id' => $company->AgreementAt()->id]) }}"
+                        <a href="{{ route('coordinator.company.agreement.edit', ['id' => $company->AgreementAt()->id]) }}"
                            class="btn btn-primary">Editar convênio</a>
                     @else
-                        <a href="{{ route('coordenador.empresa.convenio.novo', ['c' => $company->id]) }}"
+                        <a href="{{ route('coordinator.company.agreement.new', ['c' => $company->id]) }}"
                            class="btn btn-success">Adicionar convênio</a>
                     @endif
                 @endif
 
-                <a href="{{ route('coordenador.empresa.convenio', ['id' => $company->id]) }}"
+                <a href="{{ route('coordinator.company.agreement', ['id' => $company->id]) }}"
                    class="btn btn-default">Convênios</a>
             </div>
 
@@ -104,7 +104,7 @@
             </dl>
 
             <div class="btn-group">
-                <a href="{{ route('coordenador.empresa.pdf', ['id' => $company->id]) }}"
+                <a href="{{ route('coordinator.company.pdf', ['id' => $company->id]) }}"
                    target="_blank" class="btn btn-default">Imprimir relatório</a>
             </div>
         </div>

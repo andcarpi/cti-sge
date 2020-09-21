@@ -45,7 +45,7 @@ class Kernel extends ConsoleKernel
     {
         if ($this->isConnected()) {
             if (Schema::hasTable((new BackupConfiguration())->getTable())) {
-                $backupConfig = BackupConfiguration::findOrFail(1);
+                $backupConfig = BackupConfiguration::getCurrent();
                 $days = $backupConfig->cronDays();
                 $hour = $backupConfig->getHour();
 

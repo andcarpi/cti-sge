@@ -47,7 +47,7 @@ class ReportController extends Controller
         return view('coordinator.report.index')->with(['bReports' => $bReports, 'fReports' => $fReports]);
     }
 
-    public function createBimestral()
+    public function createBimonthly()
     {
         $courses = Auth::user()->coordinator_of;
 
@@ -57,7 +57,7 @@ class ReportController extends Controller
             });
 
         $i = request()->i;
-        return view('coordinator.report.bimestral.new')->with(['internships' => $internships, 'i' => $i]);
+        return view('coordinator.report.bimonthly.new')->with(['internships' => $internships, 'i' => $i]);
     }
 
     public function createFinal()
@@ -73,7 +73,7 @@ class ReportController extends Controller
         return view('coordinator.report.final.new')->with(['internships' => $internships, 'i' => $i]);
     }
 
-    public function editBimestral($id)
+    public function editBimonthly($id)
     {
         $report = BimestralReport::findOrFail($id);
 
@@ -84,7 +84,7 @@ class ReportController extends Controller
                 return $courses->contains($internship->student->course);
             })->merge([$report->internship])->sortBy('id');
 
-        return view('coordinator.report.bimestral.edit')->with(['report' => $report, 'internships' => $internships]);
+        return view('coordinator.report.bimonthly.edit')->with(['report' => $report, 'internships' => $internships]);
     }
 
     public function editFinal($id)
@@ -101,7 +101,7 @@ class ReportController extends Controller
         return view('coordinator.report.final.edit')->with(['report' => $report, 'internships' => $internships]);
     }
 
-    public function storeBimestral(StoreBimestralReport $request)
+    public function storeBimonthly(StoreBimestralReport $request)
     {
         $report = new BimestralReport();
         $params = [];
@@ -127,7 +127,7 @@ class ReportController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.relatorio.index')->with($params);
+        return redirect()->route('coordinator.report.index')->with($params);
     }
 
     public function storeFinal(StoreFinalReport $request)
@@ -185,10 +185,10 @@ class ReportController extends Controller
         $params['id'] = ($saved) ? $report->id : null;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.relatorio.index')->with($params);
+        return redirect()->route('coordinator.report.index')->with($params);
     }
 
-    public function updateBimestral($id, UpdateBimestralReport $request)
+    public function updateBimonthly($id, UpdateBimestralReport $request)
     {
         $report = BimestralReport::findOrFail($id);
         $params = [];
@@ -214,7 +214,7 @@ class ReportController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.relatorio.index')->with($params);
+        return redirect()->route('coordinator.report.index')->with($params);
     }
 
     public function updateFinal($id, UpdateFinalReport $request)
@@ -265,7 +265,7 @@ class ReportController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.relatorio.index')->with($params);
+        return redirect()->route('coordinator.report.index')->with($params);
     }
 
     public function destroyBimestral($id, DestroyBimestralReport $request)
@@ -291,7 +291,7 @@ class ReportController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
 
-        return redirect()->route('coordenador.relatorio.index')->with($params);
+        return redirect()->route('coordinator.report.index')->with($params);
     }
 
     public function destroyFinal($id, DestroyFinalReport $request)
@@ -317,10 +317,10 @@ class ReportController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
 
-        return redirect()->route('coordenador.relatorio.index')->with($params);
+        return redirect()->route('coordinator.report.index')->with($params);
     }
 
-    public function pdfBimestral(Request $request)
+    public function pdfBimonthly(Request $request)
     {
         $validatedData = (object)$request->validate([
             'startDate' => ['nullable', 'date'],
@@ -360,7 +360,7 @@ class ReportController extends Controller
             'endDate' => $endDate,
         ];
 
-        $pdf = PDF::loadView('pdf.report.bimestral', $data);
+        $pdf = PDF::loadView('pdf.report.bimonthly', $data);
         $pdf->setPaper('a4', 'portrait');
         return $pdf->stream('relatorioBimestral.pdf');
     }

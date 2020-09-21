@@ -16,7 +16,7 @@
 
 @section('content')
 
-    <form class="form-horizontal" action="{{ route('coordenador.relatorio.final.alterar', ['id' => $report->id]) }}"
+    <form class="form-horizontal" action="{{ route('coordinator.report.final.update', ['id' => $report->id]) }}"
           method="post">
         @csrf
         @method('PUT')

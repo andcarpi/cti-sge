@@ -17,7 +17,7 @@
 @section('content')
     @include('modals.coordinator.report.final.warning')
 
-    <form id="formReport" class="form-horizontal" action="{{ route('coordenador.relatorio.final.salvar') }}"
+    <form id="formReport" class="form-horizontal" action="{{ route('coordinator.report.final.store') }}"
           method="post">
         @csrf
 
@@ -970,10 +970,12 @@
     <script type="text/javascript">
         let ignore = false;
 
+        @if(App\Models\Internship::find($i) ?? $internships->first())
         let hours = {{ (App\Models\Internship::find($i) ?? $internships->first())->student->completed_hours }};
         let months = {{ (App\Models\Internship::find($i) ?? $internships->first())->student->completed_months }};
         let minHours = {{ (App\Models\Internship::find($i) ?? $internships->first())->student->course_configuration->min_hours }};
         let minMonths = {{ (App\Models\Internship::find($i) ?? $internships->first())->student->course_configuration->min_months }};
+        @endif
 
         jQuery(document).ready(function () {
             jQuery(':input').inputmask({removeMaskOnSubmit: true});

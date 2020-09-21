@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    @include('modals.coordinator.report.bimestral.students')
+    @include('modals.coordinator.report.bimonthly.students')
 
     @if(session()->has('message'))
         <div class="alert {{ session('saved') ? 'alert-success' : 'alert-error' }} alert-dismissible"
@@ -26,7 +26,7 @@
         </div>
 
         <div class="box-body">
-            <a id="addBimestralLink" href="{{ route('coordenador.relatorio.bimestral.novo') }}"
+            <a id="addBimestralLink" href="{{ route('coordinator.report.bimonthly.new') }}"
                class="btn btn-success">Adicionar relatório</a>
             <a id="pdfBimestralLink" href="#" data-toggle="modal" data-target="#viewStudentsModal"
                class="btn btn-default" target="_blank">Não entregues</a>
@@ -50,7 +50,7 @@
                         <td>{{ $report->formatted_protocol }}</td>
                         <td>
                             <a class="text-aqua"
-                               href="{{ route('coordenador.relatorio.bimestral.editar', ['id' => $report->id]) }}">Editar</a>
+                               href="{{ route('coordinator.report.bimonthly.edit', ['id' => $report->id]) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach
@@ -65,7 +65,7 @@
         </div>
 
         <div class="box-body">
-            <a id="addFinalLink" href="{{ route('coordenador.relatorio.final.novo') }}"
+            <a id="addFinalLink" href="{{ route('coordinator.report.final.new') }}"
                class="btn btn-success">Adicionar relatório</a>
 
             <table id="finalReports" class="table table-bordered table-hover">
@@ -89,7 +89,7 @@
                         <td>{{ $report->completed_hours }}</td>
                         <td>
                             <a class="text-aqua"
-                               href="{{ route('coordenador.relatorio.final.editar', ['id' => $report->id]) }}">Editar</a>
+                               href="{{ route('coordinator.report.final.edit', ['id' => $report->id]) }}">Editar</a>
                             |
                             <a href="#" onclick="pdf({{ $report->id }}); return false;" target="_blank">PDF</a>
                         </td>

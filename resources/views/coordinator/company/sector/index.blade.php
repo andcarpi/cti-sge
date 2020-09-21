@@ -20,7 +20,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('coordenador.empresa.setor.novo') }}"
+            <a id="addLink" href="{{ route('coordinator.company.sector.new') }}"
                class="btn btn-success">Adicionar setor</a>
 
             <table id="sectors" class="table table-bordered table-hover">
@@ -40,7 +40,7 @@
 
                         <td>
                             <a class="text-aqua"
-                               href="{{ route('coordenador.empresa.setor.editar', ['id' => $sector->id]) }}">Editar</a>
+                               href="{{ route('coordinator.company.sector.edit', ['id' => $sector->id]) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach

@@ -2,7 +2,7 @@
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form id="formSector" class="form-horizontal" action="{{ route('api.coordenador.empresa.setor.salvar') }}"
+            <form id="formSector" class="form-horizontal" action="{{ route('api.coordinator.company.sector.store') }}"
                   method="post">
                 @csrf
 
@@ -63,7 +63,7 @@
                 e.preventDefault();
 
                 jQuery.ajax({
-                    url: '{{ route('api.coordenador.empresa.setor.salvar') }}',
+                    url: '{{ route('api.coordinator.company.sector.store') }}',
                     data: {
                         name: jQuery('#inputSectorName').val(),
                         description: jQuery('#inputSectorDescription').val(),

@@ -16,12 +16,12 @@ class CreateAgreementsTable extends Migration
         Schema::create('agreements', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('company_id')->nullable(false)->unsigned();
+            $table->bigInteger('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->date('start_date')->nullable(false);
-            $table->date('end_date')->nullable(false);
-            $table->text('observation')->nullable(true);
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->text('observation')->nullable();
 
             $table->boolean('active')->default(true);
 

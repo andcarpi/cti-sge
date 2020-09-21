@@ -20,7 +20,7 @@
             @endif
 
             <div class="btn-group" style="display: inline-flex; margin: 0">
-                <a href="{{ route('empresa.proposta.editar', ['id' => $proposal->id]) }}"
+                <a href="{{ route('company.proposal.edit', ['id' => $proposal->id]) }}"
                    class="btn btn-primary">
                     {{ $proposal->reason_to_reject != null ? 'Reenviar proposta' : 'Editar proposta' }}
                 </a>

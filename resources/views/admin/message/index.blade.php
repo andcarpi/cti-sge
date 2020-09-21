@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.mensagem.enviar') }}" class="form-horizontal" method="post">
+    <form action="{{ route('admin.message.enviar') }}" class="form-horizontal" method="post">
         @csrf
 
         <input type="hidden" id="inputUseFilters" name="useFilters" value="{{ old('useFilters') ?? 1 }}">

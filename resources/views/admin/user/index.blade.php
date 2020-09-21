@@ -20,7 +20,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('admin.usuario.novo') }}" class="btn btn-success">Adicionar usuário</a>
+            <a id="addLink" href="{{ route('admin.user.new') }}" class="btn btn-success">Adicionar usuário</a>
 
             <table id="users" class="table table-bordered table-hover">
                 <thead>
@@ -46,12 +46,12 @@
                         <td>
                             @if($user->hasRole('teacher') || $user->hasRole('admin'))
                                 <a class="text-aqua"
-                                   href="{{ route('admin.usuario.editar', ['id' => $user->id]) }}">Editar</a>
+                                   href="{{ route('admin.user.edit', ['id' => $user->id]) }}">Editar</a>
                             @endif
 
                             @if($user->can('user-changePassword'))
                                 |
-                                <a href="{{ route('admin.usuario.alterarSenha', ['id' => $user->id]) }}">
+                                <a href="{{ route('admin.user.password.edit', ['id' => $user->id]) }}">
                                     Alterar senha</a>
                             @endif
                         </td>

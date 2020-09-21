@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('admin.configuracao.curso.alterar', ['id' => $config->id]) }}" method="post">
+    <form class="form-horizontal" action="{{ route('admin.config.course.update', ['id' => $config->id]) }}" method="post">
         @method('PUT')
         @csrf
 

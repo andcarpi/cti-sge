@@ -9,7 +9,7 @@
 @section('content')
     @include('modals.coordinator.cloneSchedule')
 
-    <form class="form-horizontal" action="{{ route('coordenador.proposta.salvar') }}" method="post">
+    <form class="form-horizontal" action="{{ route('coordinator.proposal.store') }}" method="post">
         @csrf
 
         <input type="hidden" id="inputHasSchedule" name="hasSchedule"

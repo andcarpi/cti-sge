@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('admin.usuario.alterar', ['id' => $user->id]) }}" method="post">
+    <form class="form-horizontal" action="{{ route('admin.user.update', ['id' => $user->id]) }}" method="post">
         @method('PUT')
         @csrf
 

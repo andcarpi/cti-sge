@@ -3,7 +3,7 @@
      aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form id="formSupervisor" class="form-horizontal" action="{{ route('api.coordenador.empresa.supervisor.salvar') }}"
+            <form id="formSupervisor" class="form-horizontal" action="{{ route('api.coordinator.company.supervisor.store') }}"
                   method="post">
                 @csrf
 
@@ -130,7 +130,7 @@
                 e.preventDefault();
 
                 jQuery.ajax({
-                    url: '{{ route('api.coordenador.empresa.supervisor.salvar') }}',
+                    url: '{{ route('api.coordinator.company.supervisor.store') }}',
                     data: {
                         company: parseInt(jQuery('#inputSupervisorCompany').select2('val')),
                         name: jQuery('#inputSupervisorName').val(),

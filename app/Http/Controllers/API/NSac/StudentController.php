@@ -22,7 +22,7 @@ class StudentController extends Controller
 
     public function get(Request $request)
     {
-        if ((new Student())->isConnected()) {
+        if (Student::isConnected()) {
             $students = Student::actives()->orderBy('matricula')->get();
 
             if (is_array($request->istates)) {
@@ -130,7 +130,7 @@ class StudentController extends Controller
 
     public function getByCourse($course, Request $request)
     {
-        if ((new Student())->isConnected()) {
+        if (Student::isConnected()) {
             $students = Student::actives()->orderBy('matricula')->get()->where('course_id', '=', $course);
 
             if (!is_array($students)) {
@@ -156,7 +156,7 @@ class StudentController extends Controller
 
     public function getByRA($ra)
     {
-        if ((new Student())->isConnected()) {
+        if (Student::isConnected()) {
             $student = Student::findOrFail($ra);
         } else {
             $student = null;
@@ -176,7 +176,7 @@ class StudentController extends Controller
 
     public function getByYear($year, Request $request)
     {
-        if ((new Student())->isConnected()) {
+        if (Student::isConnected()) {
             $students = Student::actives()->orderBy('matricula')->get()->where('year', '=', $year);
 
             if (is_array($request->courses)) {
@@ -205,7 +205,7 @@ class StudentController extends Controller
 
     public function getByClass($class, Request $request)
     {
-        if ((new Student())->isConnected()) {
+        if (Student::isConnected()) {
             $year = Carbon::now()->year;
             if (!empty($request->year) && ctype_digit($request->year)) {
                 $year = $request->year;

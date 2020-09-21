@@ -18,25 +18,25 @@ class CreateInternshipsTable extends Migration
 
             $table->string('ra', 7);
 
-            $table->bigInteger('company_id')->nullable(false)->unsigned();
+            $table->bigInteger('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->bigInteger('sector_id')->nullable(false)->unsigned();
+            $table->bigInteger('sector_id')->unsigned();
             $table->foreign('sector_id')->references('id')->on('sectors')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->bigInteger('coordinator_id')->nullable(false)->unsigned();
+            $table->bigInteger('coordinator_id')->unsigned();
             $table->foreign('coordinator_id')->references('id')->on('coordinators')->onDelete('cascade');
 
-            $table->bigInteger('schedule_id')->nullable(false)->unsigned();
+            $table->bigInteger('schedule_id')->unsigned();
             $table->foreign('schedule_id')->references('id')->on('schedules')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->bigInteger('schedule_2_id')->nullable(true)->unsigned();
+            $table->bigInteger('schedule_2_id')->nullable()->unsigned();
             $table->foreign('schedule_2_id')->references('id')->on('schedules')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->bigInteger('state_id')->nullable(false)->unsigned();
+            $table->bigInteger('state_id')->unsigned();
             $table->foreign('state_id')->references('id')->on('states')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->bigInteger('supervisor_id')->nullable(false)->unsigned();
+            $table->bigInteger('supervisor_id')->unsigned();
             $table->foreign('supervisor_id')->references('id')->on('supervisors')->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('start_date');
@@ -45,9 +45,9 @@ class CreateInternshipsTable extends Migration
             $table->string('protocol', 7);
 
             $table->text('activities');
-            $table->text('observation')->nullable(true);
-            $table->text('reason_to_cancel')->nullable(true);
-            $table->date('canceled_at')->nullable(true);
+            $table->text('observation')->nullable();
+            $table->text('reason_to_cancel')->nullable();
+            $table->date('canceled_at')->nullable();
 
             $table->boolean('active')->default(true);
 

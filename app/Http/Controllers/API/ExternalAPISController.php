@@ -190,16 +190,18 @@ class ExternalAPISController extends Controller
         } else {
             $data = [
                 'name' => $json[config('apis.cnpj.name')],
-                'fantasyName' => $json[config('apis.cnpj.fantasyName')],
+                'fantasy_name' => $json[config('apis.cnpj.fantasyName')],
                 'email' => $json[config('apis.cnpj.email')],
                 'phone' => $json[config('apis.cnpj.phone')],
-                'cep' => $json[config('apis.cnpj.cep')],
-                'uf' => $json[config('apis.cnpj.uf')],
-                'city' => $json[config('apis.cnpj.city')],
-                'street' => $json[config('apis.cnpj.street')],
-                'number' => $json[config('apis.cnpj.number')],
-                'complement' => $json[config('apis.cnpj.complement')],
-                'district' => $json[config('apis.cnpj.district')],
+                'address' => [
+                    'cep' => $json[config('apis.cnpj.cep')],
+                    'uf' => $json[config('apis.cnpj.uf')],
+                    'city' => $json[config('apis.cnpj.city')],
+                    'street' => $json[config('apis.cnpj.street')],
+                    'number' => $json[config('apis.cnpj.number')],
+                    'complement' => $json[config('apis.cnpj.complement')],
+                    'district' => $json[config('apis.cnpj.district')],
+                ],
             ];
         }
 

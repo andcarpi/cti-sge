@@ -16,17 +16,17 @@ class CreateCourseConfigurationsTable extends Migration
         Schema::create('course_configurations', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('course_id')->nullable(false)->unsigned();
+            $table->bigInteger('course_id')->unsigned();
             $table->foreign('course_id')->references('id')->on('courses')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->integer('min_year')->nullable(false);
-            $table->integer('min_semester')->nullable(false);
+            $table->integer('min_year');
+            $table->integer('min_semester');
 
-            $table->integer('min_hours')->nullable(false);
-            $table->integer('min_months')->nullable(false);
-            $table->integer('min_months_ctps')->nullable(false);
+            $table->integer('min_hours');
+            $table->integer('min_months');
+            $table->integer('min_months_ctps');
 
-            $table->float('min_grade')->nullable(false);
+            $table->float('min_grade');
 
             $table->timestamps();
         });

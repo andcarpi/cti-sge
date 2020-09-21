@@ -14,7 +14,7 @@
     @include('modals.coordinator.job.studentError')
     @include('modals.coordinator.student.error')
 
-    <form class="form-horizontal" action="{{ route('coordenador.estagio.salvar') }}" method="post">
+    <form class="form-horizontal" action="{{ route('coordinator.internship.store') }}" method="post">
         @csrf
 
         <div class="box box-default">

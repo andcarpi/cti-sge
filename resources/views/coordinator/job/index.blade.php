@@ -23,7 +23,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('coordenador.trabalho.novo') }}"
+            <a id="addLink" href="{{ route('coordinator.job.new') }}"
                class="btn btn-success">Adicionar trabalho</a>
 
             <table id="jobs" class="table table-bordered table-hover">
@@ -47,10 +47,10 @@
                         <td>{{ $job->coordinator->user->name }}</td>
                         <td>{{ $job->state->description }}</td>
                         <td>
-                            <a href="{{ route('coordenador.trabalho.detalhes', ['id' => $job->id]) }}">Detalhes</a>
+                            <a href="{{ route('coordinator.job.show', ['id' => $job->id]) }}">Detalhes</a>
                             |
                             <a class="text-aqua"
-                               href="{{ route('coordenador.trabalho.editar', ['id' => $job->id]) }}">Editar</a>
+                               href="{{ route('coordinator.job.edit', ['id' => $job->id]) }}">Editar</a>
 
                             @if($job->state->id == \App\Models\State::FINISHED)
                                 |
@@ -58,7 +58,7 @@
                                    onclick="jobId('{{ $job->id }}'); studentName('{{ $job->student->nome }}'); return false;"
                                    data-toggle="modal" class="text-red" data-target="#jobCancelModal">Cancelar</a>
                                 |
-                                <a href="{{ route('coordenador.trabalho.pdf', ['id' => $job->id]) }}" target="_blank">PDF</a>
+                                <a href="{{ route('coordinator.job.pdf', ['id' => $job->id]) }}" target="_blank">PDF</a>
                             @elseif($job->state->id == \App\Models\State::CANCELED && $job->student->job == null)
                                 |
                                 <a href="#"

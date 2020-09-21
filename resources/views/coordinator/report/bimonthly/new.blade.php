@@ -1,16 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Editar relatório bimestral')
+@section('title', 'Novo relatório bimestral')
 
 @section('content_header')
-    <h1>Editar relatório bimestral</h1>
+    <h1>Adicionar relatório bimestral</h1>
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('coordenador.relatorio.bimestral.alterar', ['id' => $report->id]) }}"
-          method="post">
+    <form class="form-horizontal" action="{{ route('coordinator.report.bimonthly.store') }}" method="post">
         @csrf
-        @method('PUT')
 
         <div class="box box-default">
             <div class="box-header with-border">
@@ -18,13 +16,22 @@
             </div>
 
             <div class="box-body">
-                <div class="form-group">
+                <div class="form-group @if($errors->has('internship')) has-error @endif">
                     <label for="inputInternship" class="col-sm-2 control-label">Aluno*</label>
 
                     <div class="col-sm-10">
-                        <input type="text" class="form-control input-info" id="inputInternship" name="internship"
-                               readonly
-                               value="{{ $report->internship->ra }} - {{ $report->internship->student->nome }}"/>
+                        <select class="form-control selection" id="inputInternship" name="internship">
+
+                            @foreach($internships as $internship)
+                                <option value="{{ $internship->id }}"
+                                    {{ (old('internship') ?? $i) == $internship->id ? 'selected=selected' : '' }}>
+                                    {{ $internship->ra }} - {{ $internship->student->nome }}
+                                </option>
+                            @endforeach
+
+                        </select>
+
+                        <span class="help-block">{{ $errors->first('internship') }}</span>
                     </div>
                 </div>
 
@@ -35,7 +42,7 @@
 
                             <div class="col-sm-8">
                                 <input type="date" class="form-control" id="inputDate" name="date"
-                                       value="{{ old('date') ?? $report->date }}"/>
+                                       value="{{ old('date') ?? '' }}"/>
 
                                 <span class="help-block">{{ $errors->first('date') }}</span>
                             </div>
@@ -49,7 +56,7 @@
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="inputProtocol" name="protocol"
                                        placeholder="001/2019" data-inputmask="'mask': '999/9999'"
-                                       value="{{ old('protocol') ?? $report->protocol }}"/>
+                                       value="{{ old('protocol') ?? '' }}"/>
 
                                 <span class="help-block">{{ $errors->first('protocol') }}</span>
                             </div>
@@ -61,7 +68,7 @@
 
         <div class="row">
             <div class="col-sm-12">
-                <button type="submit" class="btn btn-primary pull-right">Sobre</button>
+                <button type="submit" class="btn btn-primary pull-right">Adicionar</button>
 
                 <input type="hidden" id="inputPrevious" name="previous"
                        value="{{ old('previous') ?? url()->previous() }}">

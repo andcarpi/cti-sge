@@ -154,7 +154,7 @@ class InternshipController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.estagio.index')->with($params);
+        return redirect()->route('coordinator.internship.index')->with($params);
     }
 
     public function update($id, UpdateInternship $request)
@@ -228,7 +228,7 @@ class InternshipController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.estagio.index')->with($params);
+        return redirect()->route('coordinator.internship.index')->with($params);
     }
 
     public function destroy($id, DestroyInternship $request)
@@ -253,7 +253,7 @@ class InternshipController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('coordenador.estagio.index')->with($params);
+        return redirect()->route('coordinator.internship.index')->with($params);
     }
 
     public function cancel($id, CancelInternship $request)
@@ -280,7 +280,7 @@ class InternshipController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.estagio.index')->with($params);
+        return redirect()->route('coordinator.internship.index')->with($params);
     }
 
     public function reactivate($id, ReactivateInternship $request)
@@ -307,7 +307,7 @@ class InternshipController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.estagio.index')->with($params);
+        return redirect()->route('coordinator.internship.index')->with($params);
     }
 
     public function checkFinishedToday()

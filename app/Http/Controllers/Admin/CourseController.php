@@ -100,7 +100,7 @@ class CourseController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.curso.index')->with($params);
+        return redirect()->route('admin.course.index')->with($params);
     }
 
     public function update($id, UpdateCourse $request)
@@ -131,7 +131,7 @@ class CourseController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.curso.index')->with($params);
+        return redirect()->route('admin.course.index')->with($params);
     }
 
     public function destroy($id, DestroyCourse $request)
@@ -156,6 +156,6 @@ class CourseController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('admin.curso.index')->with($params);
+        return redirect()->route('admin.course.index')->with($params);
     }
 }

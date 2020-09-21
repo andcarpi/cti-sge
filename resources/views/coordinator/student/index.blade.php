@@ -45,7 +45,7 @@
                         <td>{{ $student->email2 }}</td>
 
                         <td>
-                            <a href="{{ route('coordenador.aluno.detalhes', ['ra' => $student->matricula]) }}">Detalhes</a>
+                            <a href="{{ route('coordinator.student.show', ['ra' => $student->matricula]) }}">Detalhes</a>
                         </td>
                     </tr>
                 @endforeach

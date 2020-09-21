@@ -24,7 +24,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('admin.curso.novo') }}" class="btn btn-success">Adicionar curso</a>
+            <a id="addLink" href="{{ route('admin.course.new') }}" class="btn btn-success">Adicionar curso</a>
 
             <table id="courses" class="table table-bordered table-hover">
                 <thead>
@@ -46,14 +46,14 @@
                         <td>{{ ($course->active) ? 'Sim' : 'Não' }}</td>
 
                         <td>
-                            <a href="{{ route('admin.curso.detalhes', ['id' => $course->id]) }}">Detalhes</a>
+                            <a href="{{ route('admin.course.show', ['id' => $course->id]) }}">Detalhes</a>
                             |
-                            <a href="{{ route('admin.curso.coordenador', ['id' => $course->id]) }}">Coordenadores</a>
+                            <a href="{{ route('admin.course.coordinator', ['id' => $course->id]) }}">Coordenadores</a>
                             |
-                            <a href="{{ route('admin.curso.configuracao.index', ['id' => $course->id]) }}">Configurações</a>
+                            <a href="{{ route('admin.course.config.index', ['id' => $course->id]) }}">Configurações</a>
                             |
                             <a class="text-aqua"
-                               href="{{ route('admin.curso.editar', ['id' => $course->id]) }}">Editar</a>
+                               href="{{ route('admin.course.edit', ['id' => $course->id]) }}">Editar</a>
 
                             @if(\App\Auth::user()->can('course-delete'))
                                 |

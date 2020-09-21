@@ -17,14 +17,14 @@ class CreateBackupConfigurationsTable extends Migration
         Schema::create('backup_configurations', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->boolean('sunday')->nullable(false)->default(true);
-            $table->boolean('monday')->nullable(false)->default(true);
-            $table->boolean('tuesday')->nullable(false)->default(true);
-            $table->boolean('wednesday')->nullable(false)->default(true);
-            $table->boolean('thursday')->nullable(false)->default(true);
-            $table->boolean('friday')->nullable(false)->default(true);
-            $table->boolean('saturday')->nullable(false)->default(true);
-            $table->time('hour')->nullable(false)->default(Carbon::createFromTime(0, 0));
+            $table->boolean('sunday')->default(true);
+            $table->boolean('monday')->default(true);
+            $table->boolean('tuesday')->default(true);
+            $table->boolean('wednesday')->default(true);
+            $table->boolean('thursday')->default(true);
+            $table->boolean('friday')->default(true);
+            $table->boolean('saturday')->default(true);
+            $table->time('hour')->default(Carbon::createFromTime(0, 0));
 
             $table->timestamps();
         });

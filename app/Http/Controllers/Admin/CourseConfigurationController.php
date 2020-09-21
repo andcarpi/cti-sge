@@ -74,7 +74,7 @@ class CourseConfigurationController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.curso.configuracao.index', ['id' => $courseId])->with($params);
+        return redirect()->route('admin.course.config.index', ['id' => $courseId])->with($params);
     }
 
     public function update($courseId, $id, UpdateCourseConfiguration $request)
@@ -109,7 +109,7 @@ class CourseConfigurationController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.curso.configuracao.index', ['id' => $courseId])->with($params);
+        return redirect()->route('admin.course.config.index', ['id' => $courseId])->with($params);
     }
 
     public function destroy($courseId, $id, DestroyCourseConfiguration $request)
@@ -134,6 +134,6 @@ class CourseConfigurationController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('admin.curso.configuracao.index', ['id' => $courseId])->with($params);
+        return redirect()->route('admin.course.config.index', ['id' => $courseId])->with($params);
     }
 }

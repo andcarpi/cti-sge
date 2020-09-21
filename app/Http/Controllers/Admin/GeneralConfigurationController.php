@@ -68,7 +68,7 @@ class GeneralConfigurationController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.configuracao.curso.index')->with($params);
+        return redirect()->route('admin.config.course.index')->with($params);
     }
 
     public function update($id, UpdateGeneralConfiguration $request)
@@ -103,7 +103,7 @@ class GeneralConfigurationController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.configuracao.curso.index')->with($params);
+        return redirect()->route('admin.config.course.index')->with($params);
     }
 
     public function destroy($id, DestroyGeneralConfiguration $request)
@@ -128,6 +128,6 @@ class GeneralConfigurationController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('admin.configuracao.curso.index')->with($params);
+        return redirect()->route('admin.config.course.index')->with($params);
     }
 }

@@ -118,7 +118,7 @@ class JobController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.trabalho.index')->with($params);
+        return redirect()->route('coordinator.job.index')->with($params);
     }
 
     public function update($id, UpdateJob $request)
@@ -155,7 +155,7 @@ class JobController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.trabalho.index')->with($params);
+        return redirect()->route('coordinator.job.index')->with($params);
     }
 
     public function destroy($id, DestroyJob $request)
@@ -180,7 +180,7 @@ class JobController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('coordenador.trabalho.index')->with($params);
+        return redirect()->route('coordinator.job.index')->with($params);
     }
 
     public function cancel($id, CancelJob $request)
@@ -207,7 +207,7 @@ class JobController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.trabalho.index')->with($params);
+        return redirect()->route('coordinator.job.index')->with($params);
     }
 
     public function reactivate($id, ReactivateJob $request)
@@ -234,7 +234,7 @@ class JobController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.trabalho.index')->with($params);
+        return redirect()->route('coordinator.job.index')->with($params);
     }
 
     public function pdf($id)

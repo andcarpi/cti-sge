@@ -13,11 +13,15 @@ class RoleTableSeeder extends Seeder
      */
     public function run()
     {
-        $role = Role::create([
-            'name' => 'admin',
-            'friendly_name' => 'Administrador',
-            'description' => 'Administra o sistema (root)',
-        ]);
+        if (config('broker.useSSO')) {
+            $role = Role::findByName('admin');
+        } else {
+            $role = Role::create([
+                'name' => 'admin',
+                'friendly_name' => 'Administrador',
+                'description' => 'Administra o sistema (root)',
+            ]);
+        }
 
         $permissions = Permission::where('name', 'like', 'sysUsage')
             ->orWhere('name', 'like', 'db-%')
@@ -33,17 +37,25 @@ class RoleTableSeeder extends Seeder
             ->get();
         $role->syncPermissions($permissions);
 
-        $role = Role::create([
-            'name' => 'teacher',
-            'friendly_name' => 'Professor',
-            'description' => 'Professor de uma disciplina técnica',
-        ]);
+        if (config('broker.useSSO')) {
+            $role = Role::findByName('teacher');
+        } else {
+            $role = Role::create([
+                'name' => 'teacher',
+                'friendly_name' => 'Professor',
+                'description' => 'Professor de uma disciplina técnica',
+            ]);
+        }
 
-        $role = Role::create([
-            'name' => 'coordinator',
-            'friendly_name' => 'Coordenador',
-            'description' => 'Coordenador de uma disciplina técnica',
-        ]);
+        if (config('broker.useSSO')) {
+            $role = Role::findByName('coordinator');
+        } else {
+            $role = Role::create([
+                'name' => 'coordinator',
+                'friendly_name' => 'Coordenador',
+                'description' => 'Coordenador de uma disciplina técnica',
+            ]);
+        }
 
         $permissions = Permission::where('name', 'like', 'company-%')
             ->orWhere('name', 'like', 'companySector-%')
@@ -59,21 +71,29 @@ class RoleTableSeeder extends Seeder
             ->get();
         $role->syncPermissions($permissions);
 
-        $role = Role::create([
-            'name' => 'company',
-            'friendly_name' => 'Empresa',
-            'description' => 'Empresas conveniadas com o colégio',
-        ]);
+        if (config('broker.useSSO')) {
+            $role = Role::findByName('company');
+        } else {
+            $role = Role::create([
+                'name' => 'company',
+                'friendly_name' => 'Empresa',
+                'description' => 'Empresas conveniadas com o colégio',
+            ]);
+        }
 
         $permissions = Permission::where('name', 'like', 'proposal-%')
             ->get();
         $role->syncPermissions($permissions);
 
-        $role = Role::create([
-            'name' => 'student',
-            'friendly_name' => 'Aluno',
-            'description' => 'Alunos do NSac',
-        ]);
+        if (config('broker.useSSO')) {
+            $role = Role::findByName('student');
+        } else {
+            $role = Role::create([
+                'name' => 'student',
+                'friendly_name' => 'Aluno',
+                'description' => 'Alunos do NSac',
+            ]);
+        }
 
         $permissions = Permission::where('name', 'like', 'proposal-list')
             ->orWhere('name', 'like', 'documents-%')

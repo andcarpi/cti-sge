@@ -97,7 +97,8 @@ class CoordinatorController extends Controller
             }
 
             Log::info($log);
-            $notification = $coordinator->temporary_of == null ? new WebNotification(['description' => "Coordenadoria de {$coordinator->course->name}", 'text' => "Você agora é coordenador de {$coordinator->course->name}.", 'icon' => 'black-tie'])
+            $notification = $coordinator->temporary_of == null ?
+                new WebNotification(['description' => "Coordenadoria de {$coordinator->course->name}", 'text' => "Você agora é coordenador de {$coordinator->course->name}.", 'icon' => 'black-tie'])
                 : new WebNotification(['description' => "Coordenadoria de {$coordinator->course->name}", 'text' => "Você agora é coordenador temporário de {$coordinator->course->name}.", 'icon' => 'black-tie']);
             $coordinator->user->notify($notification);
         } else {
@@ -107,7 +108,7 @@ class CoordinatorController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.coordenador.index')->with($params);
+        return redirect()->route('admin.coordinator.index')->with($params);
     }
 
     public function update($id, UpdateCoordinator $request)
@@ -151,7 +152,7 @@ class CoordinatorController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.coordenador.index')->with($params);
+        return redirect()->route('admin.coordinator.index')->with($params);
     }
 
     public function destroy($id, DestroyCoordinator $request)
@@ -180,7 +181,7 @@ class CoordinatorController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('admin.coordenador.index')->with($params);
+        return redirect()->route('admin.coordinator.index')->with($params);
     }
 
     public function checkCoordinators()

@@ -129,7 +129,7 @@ return [
         ['header' => 'user'],
         [
             'text' => 'changePassword',
-            'route' => 'usuario.senha.editar',
+            'route' => 'user.password.edit',
             'icon' => 'lock',
             'active' => ['usuario/senha'],
         ],
@@ -142,21 +142,21 @@ return [
             'submenu' => [
                 [
                     'text' => 'courseConfig',
-                    'route' => 'admin.configuracao.curso.index',
+                    'route' => 'admin.config.course.index',
                     'icon' => 'wrench',
                     'active' => ['admin/configuracao/curso', 'admin/configuracao/curso/novo'],
                     'can' => 'generalConfiguration-list',
                 ],
                 [
                     'text' => 'configurations',
-                    'route' => 'admin.configuracao.parametros.index',
+                    'route' => 'admin.config.parameters.index',
                     'icon' => 'wrench',
                     'active' => ['admin/configuracao/parametros'],
                     'can' => 'systemConfiguration-list',
                 ],
                 [
                     'text' => 'backup',
-                    'route' => 'admin.configuracao.backup.index',
+                    'route' => 'admin.config.backup.index',
                     'icon' => 'floppy-o',
                     'active' => ['admin/configuracao/backup'],
                     'can' => 'db-backup',
@@ -178,13 +178,13 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'admin.usuario.index',
+                    'route' => 'admin.user.index',
                     'icon' => 'th-list',
                     'active' => ['admin/usuario'],
                 ],
                 [
                     'text' => 'new',
-                    'route' => 'admin.usuario.novo',
+                    'route' => 'admin.user.new',
                     'icon' => 'edit',
                     'active' => ['admin/usuario/novo'],
                 ],
@@ -192,14 +192,14 @@ return [
         ],
         [
             'text' => 'message',
-            'route' => 'admin.mensagem.index',
+            'route' => 'admin.message.index',
             'icon' => 'envelope',
             'active' => ['admin/mensagem'],
             'role' => 'admin',
         ],
         [
             'text' => 'message',
-            'route' => 'coordenador.mensagem.index',
+            'route' => 'coordinator.message.index',
             'icon' => 'envelope',
             'active' => ['coordenador/mensagem', 'coordenador/mensagem*'],
             'role' => 'coordinator',
@@ -213,13 +213,13 @@ return [
         ],
         [
             'text' => 'help',
-            'route' => 'ajuda.index',
+            'route' => 'help.index',
             'icon' => 'question-circle',
             'active' => ['ajuda'],
         ],
         [
             'text' => 'about',
-            'route' => 'sobre.index',
+            'route' => 'about.index',
             'icon' => 'bolt',
             'active' => ['sobre'],
         ],
@@ -232,14 +232,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'admin.curso.index',
+                    'route' => 'admin.course.index',
                     'icon' => 'th-list',
                     'active' => ['admin/curso'],
                     'can' => 'course-list',
                 ],
                 [
                     'text' => 'new',
-                    'route' => 'admin.curso.novo',
+                    'route' => 'admin.course.new',
                     'icon' => 'edit',
                     'active' => ['admin/curso/novo'],
                     'can' => 'course-create',
@@ -253,14 +253,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'admin.coordenador.index',
+                    'route' => 'admin.coordinator.index',
                     'icon' => 'th-list',
                     'active' => ['admin/coordenador', 'admin/curso/*/coordenador'],
                     'can' => 'coordinator-list',
                 ],
                 [
                     'text' => 'new',
-                    'route' => 'admin.coordenador.novo',
+                    'route' => 'admin.coordinator.new',
                     'icon' => 'edit',
                     'active' => ['admin/coordenador/novo*'],
                     'can' => 'coordinator-create',
@@ -271,7 +271,7 @@ return [
         ['header' => 'secretary', 'role' => 'admin'],
         [
             'text' => 'graduation',
-            'route' => 'admin.colacao.index',
+            'route' => 'admin.graduation.index',
             'icon' => 'graduation-cap',
             'active' => ['admin/colacao'],
             'can' => 'graduation-list',
@@ -286,14 +286,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'coordenador.empresa.index',
+                    'route' => 'coordinator.company.index',
                     'icon' => 'th-list',
                     'active' => ['coordenador/empresa'],
                     'can' => 'company-list',
                 ],
                 [
                     'text' => 'new',
-                    'route' => 'coordenador.empresa.novo',
+                    'route' => 'coordinator.company.new',
                     'icon' => 'edit',
                     'active' => ['coordenador/empresa/novo'],
                     'can' => 'company-create',
@@ -304,14 +304,14 @@ return [
                     'submenu' => [
                         [
                             'text' => 'view',
-                            'route' => 'coordenador.empresa.setor.index',
+                            'route' => 'coordinator.company.sector.index',
                             'icon' => 'th-list',
                             'active' => ['coordenador/empresa/setor'],
                             'can' => 'companySector-list',
                         ],
                         [
                             'text' => 'new',
-                            'route' => 'coordenador.empresa.setor.novo',
+                            'route' => 'coordinator.company.sector.new',
                             'icon' => 'edit',
                             'active' => ['coordenador/empresa/setor/novo'],
                             'can' => 'companySector-create',
@@ -324,14 +324,14 @@ return [
                     'submenu' => [
                         [
                             'text' => 'view',
-                            'route' => 'coordenador.empresa.supervisor.index',
+                            'route' => 'coordinator.company.supervisor.index',
                             'icon' => 'th-list',
                             'active' => ['coordenador/empresa/supervisor', 'coordenador/empresa/*/supervisor'],
                             'can' => 'companySupervisor-list',
                         ],
                         [
                             'text' => 'new',
-                            'route' => 'coordenador.empresa.supervisor.novo',
+                            'route' => 'coordinator.company.supervisor.new',
                             'icon' => 'edit',
                             'active' => ['coordenador/empresa/supervisor/novo*'],
                             'can' => 'companySupervisor-create',
@@ -344,14 +344,14 @@ return [
                     'submenu' => [
                         [
                             'text' => 'view',
-                            'route' => 'coordenador.empresa.convenio.index',
+                            'route' => 'coordinator.company.agreement.index',
                             'icon' => 'th-list',
                             'active' => ['coordenador/empresa/convenio', 'coordenador/empresa/*/convenio'],
                             'can' => 'companyAgreement-list',
                         ],
                         [
                             'text' => 'new',
-                            'route' => 'coordenador.empresa.convenio.novo',
+                            'route' => 'coordinator.company.agreement.new',
                             'icon' => 'edit',
                             'active' => ['coordenador/empresa/convenio/novo*'],
                             'can' => 'companyAgreement-create',
@@ -367,14 +367,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'coordenador.estagio.index',
+                    'route' => 'coordinator.internship.index',
                     'icon' => 'th-list',
                     'active' => ['coordenador/estagio'],
                     'can' => 'internship-list',
                 ],
                 [
                     'text' => 'new',
-                    'route' => 'coordenador.estagio.novo',
+                    'route' => 'coordinator.internship.new',
                     'icon' => 'edit',
                     'active' => ['coordenador/estagio/novo*'],
                     'can' => 'internship-create',
@@ -385,14 +385,14 @@ return [
                     'submenu' => [
                         [
                             'text' => 'view',
-                            'route' => 'coordenador.estagio.aditivo.index',
+                            'route' => 'coordinator.internship.amendment.index',
                             'icon' => 'th-list',
                             'active' => ['coordenador/estagio/aditivo', 'coordenador/estagio/*/aditivo'],
                             'can' => 'internshipAmendment-list',
                         ],
                         [
                             'text' => 'new',
-                            'route' => 'coordenador.estagio.aditivo.novo',
+                            'route' => 'coordinator.internship.amendment.new',
                             'icon' => 'edit',
                             'active' => ['coordenador/estagio/aditivo/novo*'],
                             'can' => 'internshipAmendment-create',
@@ -408,14 +408,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'coordenador.trabalho.index',
+                    'route' => 'coordinator.job.index',
                     'icon' => 'th-list',
                     'active' => ['coordenador/trabalho'],
                     'can' => 'job-list',
                 ],
                 [
                     'text' => 'new',
-                    'route' => 'coordenador.trabalho.novo',
+                    'route' => 'coordinator.job.new',
                     'icon' => 'edit',
                     'active' => ['coordenador/trabalho/novo*'],
                     'can' => 'job-create',
@@ -426,14 +426,14 @@ return [
                     'submenu' => [
                         [
                             'text' => 'view',
-                            'route' => 'coordenador.trabalho.empresa.index',
+                            'route' => 'coordinator.job.company.index',
                             'icon' => 'th-list',
                             'active' => ['coordenador/trabalho/empresa'],
                             'can' => 'jobCompany-list',
                         ],
                         [
                             'text' => 'new',
-                            'route' => 'coordenador.trabalho.empresa.novo',
+                            'route' => 'coordinator.job.company.new',
                             'icon' => 'edit',
                             'active' => ['coordenador/trabalho/empresa/novo'],
                             'can' => 'jobCompany-create',
@@ -449,21 +449,21 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'coordenador.relatorio.index',
+                    'route' => 'coordinator.report.index',
                     'icon' => 'th-list',
                     'active' => ['coordenador/relatorio'],
                     'can' => 'report-list',
                 ],
                 [
-                    'text' => 'bimestral',
-                    'route' => 'coordenador.relatorio.bimestral.novo',
+                    'text' => 'bimonthly',
+                    'route' => 'coordinator.report.bimonthly.new',
                     'icon' => 'edit',
                     'active' => ['coordenador/relatorio/bimestral/novo*'],
                     'can' => 'report-create',
                 ],
                 [
                     'text' => 'final',
-                    'route' => 'coordenador.relatorio.final.novo',
+                    'route' => 'coordinator.report.final.new',
                     'icon' => 'edit',
                     'active' => ['coordenador/relatorio/final/novo*'],
                     'can' => 'report-create',
@@ -479,14 +479,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'coordenador.proposta.index',
+                    'route' => 'coordinator.proposal.index',
                     'icon' => 'th-list',
                     'active' => ['coordenador/proposta'],
                     'can' => 'proposal-list',
                 ],
                 [
                     'text' => 'new',
-                    'route' => 'coordenador.proposta.novo',
+                    'route' => 'coordinator.proposal.new',
                     'icon' => 'edit',
                     'active' => ['coordenador/proposta/novo'],
                     'can' => 'proposal-create',
@@ -502,14 +502,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'data',
-                    'route' => 'coordenador.aluno.index',
+                    'route' => 'coordinator.student.index',
                     'icon' => 'file-text-o',
                     'active' => ['coordenador/aluno'],
                     'can' => 'student-list',
                 ],
                 [
                     'text' => 'pdf',
-                    'route' => 'coordenador.aluno.pdf',
+                    'route' => 'coordinator.student.pdf',
                     'icon' => 'file-pdf-o',
                     'active' => ['coordenador/aluno/pdf'],
                     'can' => 'student-list',
@@ -526,14 +526,14 @@ return [
             'submenu' => [
                 [
                     'text' => 'view',
-                    'route' => 'empresa.proposta.index',
+                    'route' => 'company.proposal.index',
                     'icon' => 'th-list',
                     'active' => ['empresa/proposta'],
                     'can' => 'proposal-list',
                 ],
                 [
                     'text' => 'new',
-                    'route' => 'empresa.proposta.novo',
+                    'route' => 'company.proposal.new',
                     'icon' => 'edit',
                     'active' => ['empresa/proposta/novo'],
                     'can' => 'proposal-create',
@@ -546,7 +546,7 @@ return [
         [
             'text' => 'proposals',
             'icon' => 'bullhorn',
-            'route' => 'aluno.proposta.index',
+            'route' => 'student.proposal.index',
             'active' => ['aluno/proposta'],
             'role' => 'student',
             'can' => 'proposal-list',
@@ -555,7 +555,7 @@ return [
         ['header' => 'DOCUMENTOS', 'role' => 'student'],
         [
             'text' => 'documentation',
-            'route' => 'aluno.documento.index',
+            'route' => 'student.document.index',
             'icon' => 'book',
             'active' => ['aluno/documento'],
             'role' => 'student',

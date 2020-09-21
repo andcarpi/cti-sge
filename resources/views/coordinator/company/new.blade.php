@@ -17,7 +17,7 @@
 
     @include('modals.coordinator.company.error')
 
-    <form class="form-horizontal" action="{{ route('coordenador.empresa.salvar') }}" method="post">
+    <form class="form-horizontal" action="{{ route('coordinator.company.store') }}" method="post">
         @csrf
 
         <div class="box box-default">
@@ -405,13 +405,13 @@
             jQuery('#aAddSector').on('click', () => {
                 setTimeout(() => {
                     jQuery('#inputSectorActive').select2({
-                        language: "pt-BR"
+                        language: 'pt-BR'
                     });
                 }, 250);
             });
 
             jQuery('.selection').select2({
-                language: "pt-BR"
+                language: 'pt-BR'
             });
 
             jQuery(':input').inputmask({removeMaskOnSubmit: true});
@@ -427,9 +427,9 @@
             });
 
             jQuery('#inputSectors').select2({
-                language: "pt-BR",
+                language: 'pt-BR',
                 ajax: {
-                    url: '{{ route('api.coordenador.empresa.setor.get') }}',
+                    url: '{{ route('api.coordinator.company.sector.get') }}',
                     dataType: 'json',
                     method: 'GET',
                     cache: true,
@@ -455,7 +455,7 @@
             });
 
             jQuery('#inputUf').select2({
-                language: "pt-BR",
+                language: 'pt-BR',
                 ajax: {
                     url: `{{ config('app.url') }}/api/external/ufs`,
                     dataType: 'json',
@@ -484,7 +484,7 @@
                 jQuery('#inputCity').empty();
 
                 jQuery('#inputCity').select2({
-                    language: "pt-BR",
+                    language: 'pt-BR',
                     ajax: {
                         url: `{{ config('app.url') }}/api/external/cities/${jQuery('#inputUf').val()}`,
                         dataType: 'json',
@@ -517,16 +517,16 @@
                     type: 'GET',
                     success: function (companies) {
                         if (companies.length > 0) {
-                            jQuery("#companyErrorModal").modal({
-                                backdrop: "static",
+                            jQuery('#companyErrorModal').modal({
+                                backdrop: 'static',
                                 keyboard: false,
                                 show: true
                             });
 
                             jQuery('#inputCpfCnpj').val('');
                         } else if (jQuery('#inputPj').val() === '1') {
-                            jQuery("#cnpjLoadingModal").modal({
-                                backdrop: "static",
+                            jQuery('#cnpjLoadingModal').modal({
+                                backdrop: 'static',
                                 keyboard: false,
                                 show: true
                             });
@@ -536,51 +536,44 @@
                                 dataType: 'json',
                                 type: 'GET',
                                 success: function (company) {
-                                    jQuery("#cnpjLoadingModal").modal("hide");
+                                    jQuery('#cnpjLoadingModal').modal('hide');
 
                                     if (company.error) {
-                                        jQuery("#cnpjErrorModal").modal({
-                                            backdrop: "static",
+                                        jQuery('#cnpjErrorModal').modal({
+                                            backdrop: 'static',
                                             keyboard: false,
                                             show: true
                                         });
 
                                         company.name = '';
-                                        company.fantasyName = '';
+                                        company.fantasy_name = '';
                                         company.email = '';
                                         company.phone = '';
-                                        company.cep = '';
-                                        company.uf = '';
-                                        company.city = '';
-                                        company.street = '';
-                                        company.number = '';
-                                        company.complement = '';
-                                        company.district = '';
+                                        company.address.cep = '';
+                                        company.address.uf = '';
+                                        company.address.city = '';
+                                        company.address.street = '';
+                                        company.address.number = '';
+                                        company.address.complement = '';
+                                        company.address.district = '';
 
                                         return;
                                     }
 
                                     jQuery('#inputName').val(company.name);
-                                    jQuery('#inputFantasyName').val(company.fantasyName);
+                                    jQuery('#inputFantasyName').val(company.fantasy_name);
                                     jQuery('#inputEmail').val(company.email);
                                     jQuery('#inputPhone').val(company.phone);
-                                    jQuery('#inputCep').val(company.cep);
+                                    jQuery('#inputCep').val(company.address.cep);
 
-                                    loadCep({
-                                        uf: company.uf,
-                                        city: company.city,
-                                        street: company.street,
-                                        number: company.number,
-                                        complement: company.complement,
-                                        district: company.district
-                                    });
+                                    loadCep(company.address);
                                 },
 
                                 error: function () {
-                                    jQuery("#cnpjLoadingModal").modal("hide");
+                                    jQuery('#cnpjLoadingModal').modal('hide');
 
-                                    jQuery("#cnpjErrorModal").modal({
-                                        backdrop: "static",
+                                    jQuery('#cnpjErrorModal').modal({
+                                        backdrop: 'static',
                                         keyboard: false,
                                         show: true
                                     });
@@ -596,8 +589,8 @@
             }
 
             function loadCep(data = null) {
-                jQuery("#cepLoadingModal").modal({
-                    backdrop: "static",
+                jQuery('#cepLoadingModal').modal({
+                    backdrop: 'static',
                     keyboard: false,
                     show: true
                 });
@@ -607,15 +600,15 @@
                     dataType: 'json',
                     type: 'GET',
                     success: function (address) {
-                        jQuery("#cepLoadingModal").modal("hide");
+                        jQuery('#cepLoadingModal').modal('hide');
 
                         let fields = [
                             'street', 'number', 'complement', 'district', 'city', 'uf'
                         ];
 
                         if (address.error) {
-                            jQuery("#cepErrorModal").modal({
-                                backdrop: "static",
+                            jQuery('#cepErrorModal').modal({
+                                backdrop: 'static',
                                 keyboard: false,
                                 show: true
                             });
@@ -625,7 +618,7 @@
                             });
                         }
 
-                        if (data !== null && typeof data === "object") {
+                        if (data !== null && typeof data === 'object') {
                             if (!address.hasOwnProperty('number')) {
                                 address.number = '';
                             }
@@ -657,10 +650,10 @@
                     },
 
                     error: function () {
-                        jQuery("#cepLoadingModal").modal("hide");
+                        jQuery('#cepLoadingModal').modal('hide');
 
-                        jQuery("#cepErrorModal").modal({
-                            backdrop: "static",
+                        jQuery('#cepErrorModal').modal({
+                            backdrop: 'static',
                             keyboard: false,
                             show: true
                         });
@@ -669,13 +662,13 @@
             }
 
             jQuery('#inputCep').blur(() => {
-                if (jQuery('#inputCep').val() !== "") {
+                if (jQuery('#inputCep').val() !== '') {
                     loadCep();
                 }
             });
 
             jQuery('#inputCpfCnpj').blur(() => {
-                if (jQuery('#inputCpfCnpj').val() !== "") {
+                if (jQuery('#inputCpfCnpj').val() !== '') {
                     loadCnpj();
                 }
             });

@@ -37,7 +37,7 @@ class StudentController extends Controller
             abort(404);
         }
 
-        return view('coordinator.student.details')->with(['student' => $student]);
+        return view('coordinator.student.show')->with(['student' => $student]);
     }
 
     public function pdf()

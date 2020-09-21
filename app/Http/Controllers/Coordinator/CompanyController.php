@@ -147,7 +147,7 @@ class CompanyController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.index')->with($params);
+        return redirect()->route('coordinator.company.index')->with($params);
     }
 
     public function update($id, UpdateCompany $request)
@@ -207,7 +207,7 @@ class CompanyController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.index')->with($params);
+        return redirect()->route('coordinator.company.index')->with($params);
     }
 
     public function destroy($id, DestroyCompany $request)
@@ -232,6 +232,6 @@ class CompanyController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('coordenador.empresa.index')->with($params);
+        return redirect()->route('coordinator.company.index')->with($params);
     }
 }

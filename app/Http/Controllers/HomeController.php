@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Auth;
+use App\Models\BimestralReport;
+use App\Models\Company;
+use App\Models\FinalReport;
 use App\Models\Internship;
+use App\Models\Job;
 use App\Models\Proposal;
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Renderable;
@@ -24,12 +28,17 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         if ($user->password_change_at == null) {
-            return redirect()->route('usuario.senha.editar');
+            return redirect()->route('user.password.edit');
         }
 
         $data = ['user' => $user];
 
         if ($user->isCoordinator()) {
+            $data['companyCount'] = Company::count();
+            $data['internshipCount'] = Internship::count();
+            $data['jobCount'] = Job::count();
+            $data['reportCount'] = BimestralReport::count() + FinalReport::count();
+
             $strCourses = $user->coordinator_courses_name;
             $courses = $user->coordinator_of;
 

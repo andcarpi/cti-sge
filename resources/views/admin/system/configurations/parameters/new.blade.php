@@ -10,7 +10,7 @@
     @include('modals.cep.loading')
     @include('modals.cep.error')
 
-    <form class="form-horizontal" action="{{ route('admin.configuracao.parametros.salvar') }}" method="post">
+    <form class="form-horizontal" action="{{ route('admin.config.parameters.store') }}" method="post">
         @csrf
 
         <div class="box box-default">

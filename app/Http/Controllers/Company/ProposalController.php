@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Company\DestroyProposal;
 use App\Http\Requests\Company\StoreProposal;
 use App\Http\Requests\Company\UpdateProposal;
-use App\Models\Course;
 use App\Models\Proposal;
 use App\Models\Schedule;
 use App\Notifications\WebNotification;
@@ -147,7 +146,7 @@ class ProposalController extends Controller
                 'description' => "Proposta de estágio",
                 'text' => "A empresa {$company->name} acabou de enviar uma nova proposta de estágio.",
                 'icon' => 'bullhorn',
-                'url' => route('coordenador.proposta.detalhes', ['id' => $proposal->id]),
+                'url' => route('coordinator.proposal.show', ['id' => $proposal->id]),
             ]);
 
             foreach ($proposal->courses as $course) {
@@ -162,7 +161,7 @@ class ProposalController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('empresa.proposta.index')->with($params);
+        return redirect()->route('company.proposal.index')->with($params);
     }
 
     public function update($id, UpdateProposal $request)
@@ -255,7 +254,7 @@ class ProposalController extends Controller
                     'description' => "Proposta de estágio",
                     'text' => "A empresa {$company->name} reenviou uma proposta de estágio rejeitada.",
                     'icon' => 'bullhorn',
-                    'url' => route('coordenador.proposta.detalhes', ['id' => $proposal->id]),
+                    'url' => route('coordinator.proposal.show', ['id' => $proposal->id]),
                 ]);
 
                 foreach ($proposal->courses as $course) {
@@ -272,7 +271,7 @@ class ProposalController extends Controller
                     'description' => "Proposta de estágio",
                     'text' => "A empresa {$company->name} editou uma proposta de estágio.",
                     'icon' => 'bullhorn',
-                    'url' => route('coordenador.proposta.detalhes', ['id' => $proposal->id]),
+                    'url' => route('coordinator.proposal.show', ['id' => $proposal->id]),
                 ]);
 
                 foreach ($proposal->courses as $course) {
@@ -286,7 +285,7 @@ class ProposalController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('empresa.proposta.index')->with($params);
+        return redirect()->route('company.proposal.index')->with($params);
     }
 
     public function destroy($id, DestroyProposal $request)
@@ -313,6 +312,6 @@ class ProposalController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
 
-        return redirect()->route('empresa.proposta.index')->with($params);
+        return redirect()->route('company.proposal.index')->with($params);
     }
 }

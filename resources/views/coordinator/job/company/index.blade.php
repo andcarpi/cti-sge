@@ -20,7 +20,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('coordenador.trabalho.empresa.novo') }}"
+            <a id="addLink" href="{{ route('coordinator.job.company.new') }}"
                class="btn btn-success">Adicionar empresa</a>
 
             <table id="jobCompanies" class="table table-bordered table-hover" data-order="[[ 1, &quot;asc&quot; ]]">
@@ -41,10 +41,10 @@
                         <td>{{ ($company->active) ? 'Sim' : 'Não' }}</td>
 
                         <td>
-                            <a href="{{ route('coordenador.trabalho.empresa.detalhes', ['id' => $company->id]) }}">Detalhes</a>
+                            <a href="{{ route('coordinator.job.company.show', ['id' => $company->id]) }}">Detalhes</a>
                             |
                             <a class="text-aqua"
-                               href="{{ route('coordenador.trabalho.empresa.editar', ['id' => $company->id]) }}">Editar</a>
+                               href="{{ route('coordinator.job.company.edit', ['id' => $company->id]) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach

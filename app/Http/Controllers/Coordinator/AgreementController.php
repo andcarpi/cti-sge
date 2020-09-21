@@ -12,7 +12,6 @@ use App\Http\Requests\Coordinator\UpdateAgreement;
 use App\Models\Agreement;
 use App\Models\Company;
 use App\Models\SystemConfiguration;
-use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
 class AgreementController extends Controller
@@ -82,7 +81,7 @@ class AgreementController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.convenio.index')->with($params);
+        return redirect()->route('coordinator.company.agreement.index')->with($params);
     }
 
     public function update($id, UpdateAgreement $request)
@@ -117,7 +116,7 @@ class AgreementController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.convenio.index')->with($params);
+        return redirect()->route('coordinator.company.agreement.index')->with($params);
     }
 
     public function destroy($id, DestroyAgreement $request)
@@ -142,7 +141,7 @@ class AgreementController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('coordenador.empresa.convenio.index')->with($params);
+        return redirect()->route('coordinator.company.agreement.index')->with($params);
     }
 
     public function cancel($id, CancelAgreement $request)
@@ -170,7 +169,7 @@ class AgreementController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.convenio.index')->with($params);
+        return redirect()->route('coordinator.company.agreement.index')->with($params);
     }
 
     public function reactivate($id, ReactivateAgreement $request)
@@ -202,7 +201,7 @@ class AgreementController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.convenio.index')->with($params);
+        return redirect()->route('coordinator.company.agreement.index')->with($params);
     }
 
     public function deleteUsers()

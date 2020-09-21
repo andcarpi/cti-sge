@@ -16,26 +16,26 @@
     <div class="box box-default">
         <div class="box-body">
             <div class="btn-group" style="display: inline-flex; margin: 0">
-                <a href="{{ route('admin.curso.editar', ['id' => $course->id]) }}"
+                <a href="{{ route('admin.course.edit', ['id' => $course->id]) }}"
                    class="btn btn-primary">Editar curso</a>
 
-                <a href="{{ route('admin.curso.configuracao.index', ['id' => $course->id]) }}" class="btn btn-default">Configurações</a>
+                <a href="{{ route('admin.course.config.index', ['id' => $course->id]) }}" class="btn btn-default">Configurações</a>
 
                 @if($config != null && !isset($config->max_years))
-                    <a href="{{ route('admin.curso.configuracao.editar', ['id' => $course->id, 'id_config' => $config->id]) }}"
+                    <a href="{{ route('admin.course.config.edit', ['id' => $course->id, 'id_config' => $config->id]) }}"
                        class="btn btn-primary">Editar configuração</a>
                 @else
-                    <a href="{{ route('admin.curso.configuracao.novo', ['id' => $course->id]) }}"
+                    <a href="{{ route('admin.course.config.new', ['id' => $course->id]) }}"
                        class="btn btn-success">Adicionar configuração</a>
                 @endif
 
-                <a href="{{ route('admin.curso.coordenador', ['id' => $course->id]) }}" class="btn btn-default">Coordenadores</a>
+                <a href="{{ route('admin.course.coordinator', ['id' => $course->id]) }}" class="btn btn-default">Coordenadores</a>
 
                 @if($coordinator != null)
-                    <a href="{{ route('admin.coordenador.editar', ['id' => $coordinator->id]) }}"
+                    <a href="{{ route('admin.coordinator.edit', ['id' => $coordinator->id]) }}"
                        class="btn btn-primary">Editar coordenador</a>
                 @else
-                    <a href="{{ route('admin.coordenador.novo', ['c' => $course->id]) }}"
+                    <a href="{{ route('admin.coordinator.new', ['c' => $course->id]) }}"
                        class="btn btn-success">Adicionar coordenador</a>
                 @endif
 

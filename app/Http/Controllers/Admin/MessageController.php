@@ -152,6 +152,6 @@ class MessageController extends Controller
             $params['message'] = 'Erro ao enviar email.';
         }
 
-        return redirect()->route('admin.mensagem.index')->with($params);
+        return redirect()->route('admin.message.index')->with($params);
     }
 }

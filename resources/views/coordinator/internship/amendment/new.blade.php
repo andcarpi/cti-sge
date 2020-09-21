@@ -9,7 +9,7 @@
 @section('content')
     @include('modals.coordinator.cloneSchedule')
 
-    <form class="form-horizontal" action="{{ route('coordenador.estagio.aditivo.salvar') }}" method="post">
+    <form class="form-horizontal" action="{{ route('coordinator.internship.amendment.store') }}" method="post">
         @csrf
         @include('modals.coordinator.internship.amendment.changeEndDate')
 

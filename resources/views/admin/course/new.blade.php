@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('admin.curso.salvar') }}" method="post">
+    <form class="form-horizontal" action="{{ route('admin.course.store') }}" method="post">
         @csrf
 
         <input type="hidden" id="inputHasConfig" name="hasConfig" value="{{ old('hasConfig') ?? 0 }}">

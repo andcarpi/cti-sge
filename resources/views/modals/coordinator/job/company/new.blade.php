@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <form id="formJobCompany" class="form-horizontal"
-                  action="{{ route('api.coordenador.trabalho.empresa.salvar') }}" method="post">
+                  action="{{ route('api.coordinator.job.company.store') }}" method="post">
                 @csrf
 
                 <div class="modal-header">
@@ -147,7 +147,7 @@
                 e.preventDefault();
 
                 jQuery.ajax({
-                    url: '{{ route('api.coordenador.trabalho.empresa.salvar') }}',
+                    url: '{{ route('api.coordinator.job.company.store') }}',
                     data: {
                         cpfCnpj: jQuery('#inputCompanyCpfCnpj').inputmask('unmaskedvalue'),
                         ie: jQuery('#inputCompanyIE').inputmask('unmaskedvalue'),

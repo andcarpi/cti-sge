@@ -51,7 +51,7 @@ class CreatePermissionTables extends Migration
                 'model_has_permissions_permission_model_type_primary');
         });
 
-        if (config('broker.useSSO')) {
+        if (!config('broker.useSSO')) {
             Schema::create($tableNames['model_has_roles'], function (Blueprint $table) use ($tableNames, $columnNames) {
                 $table->unsignedInteger('role_id');
 

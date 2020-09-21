@@ -25,7 +25,7 @@
     <div class="box box-default">
         <div class="box-body">
             <a id="addLink" class="btn btn-success"
-               href="{{ (isset($company)) ? route('coordenador.empresa.convenio.novo', ['c' => $company->id]) : route('coordenador.empresa.convenio.novo') }}">
+               href="{{ (isset($company)) ? route('coordinator.company.agreement.new', ['c' => $company->id]) : route('coordinator.company.agreement.new') }}">
                 Adicionar convênio
             </a>
 
@@ -53,7 +53,7 @@
                         <td>{{ $agreement->end_date->format("d/m/Y") }}</td>
                         <td>
                             <a class="text-aqua"
-                               href="{{ route('coordenador.empresa.convenio.editar', ['id' => $agreement->id]) }}">Editar</a>
+                               href="{{ route('coordinator.company.agreement.edit', ['id' => $agreement->id]) }}">Editar</a>
 
                             @if($agreement->active)
                                 |

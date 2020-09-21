@@ -14,7 +14,7 @@
         <!-- /.login-logo -->
         <div class="login-box-body">
             <p class="login-box-msg">{{ __('adminlte.password_change_message') }}</p>
-            <form action="{{ route('usuario.senha.alterar') }}" method="post">
+            <form action="{{ route('user.password.update') }}" method="post">
                 @csrf
                 @method('PUT')
 

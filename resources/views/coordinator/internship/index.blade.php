@@ -23,7 +23,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('coordenador.estagio.novo') }}"
+            <a id="addLink" href="{{ route('coordinator.internship.new') }}"
                class="btn btn-success">Adicionar estágio</a>
 
             <table id="internships" class="table table-bordered table-hover">
@@ -46,17 +46,17 @@
                         <td>{{ $internship->coordinator->user->name }}</td>
                         <td>{{ ($internship->needsFinalReport()) ? 'Requer finalização' : $internship->state->description }}</td>
                         <td>
-                            <a href="{{ route('coordenador.estagio.detalhes', ['id' => $internship->id]) }}">Detalhes</a>
+                            <a href="{{ route('coordinator.internship.show', ['id' => $internship->id]) }}">Detalhes</a>
 
                             @if(\App\Auth::user()->can('internshipAmendment-list'))
                                 |
-                                <a href="{{ route('coordenador.estagio.aditivo', ['id' => $internship->id]) }}">Termos
+                                <a href="{{ route('coordinator.internship.amendment', ['id' => $internship->id]) }}">Termos
                                     aditivos</a>
                             @endif
 
                             |
                             <a class="text-aqua"
-                               href="{{ route('coordenador.estagio.editar', ['id' => $internship->id]) }}">Editar</a>
+                               href="{{ route('coordinator.internship.edit', ['id' => $internship->id]) }}">Editar</a>
 
                             @if($internship->state->id == \App\Models\State::OPEN)
                                 |

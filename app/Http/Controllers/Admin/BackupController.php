@@ -172,7 +172,7 @@ class BackupController extends Controller
             }
         }
 
-        return redirect()->route('admin.configuracao.backup.index')->with($params);
+        return redirect()->route('admin.config.backup.index')->with($params);
     }
 
     public function scheduledBackup()
@@ -223,7 +223,7 @@ class BackupController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar configurações!';
-        return redirect()->route('admin.configuracao.backup.index')->with($params);
+        return redirect()->route('admin.config.backup.index')->with($params);
     }
 
     private function verifyData(string $data)

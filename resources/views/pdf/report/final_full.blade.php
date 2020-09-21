@@ -75,7 +75,7 @@
     <h3 style="margin-top: 5px; text-decoration: underline;" class="text-center">Ficha de Avaliação de Estágio</h3>
 
     <div style="text-align: center; margin-bottom: 5px;">
-        <img src="{{ route('api.alunos.foto', ['id' => $student->matricula]) }}" style="height: 140px" alt="">
+        <img src="{{ route('api.students.photo', ['id' => $student->matricula]) }}" style="height: 140px" alt="">
     </div>
 
     <div>

@@ -24,6 +24,6 @@ class ProposalController extends Controller
     {
         $proposal = Proposal::findOrFail($id);
 
-        return view('student.proposal.details')->with(['proposal' => $proposal]);
+        return view('student.proposal.show')->with(['proposal' => $proposal]);
     }
 }

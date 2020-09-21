@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('coordenador.empresa.setor.salvar') }}" method="post">
+    <form class="form-horizontal" action="{{ route('coordinator.company.sector.store') }}" method="post">
         @csrf
 
         <div class="box box-default">

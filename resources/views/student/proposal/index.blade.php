@@ -39,7 +39,7 @@
                         <td>{{ join(', ', $proposal->courses->map(function ($c) { return $c->name; })->toArray()) }}</td>
                         <td>{{ $proposal->deadline->format('d/m/Y') }}</td>
                         <td>
-                            <a href="{{ route('aluno.proposta.detalhes', ['id' => $proposal->id]) }}">Detalhes</a>
+                            <a href="{{ route('student.proposal.show', ['id' => $proposal->id]) }}">Detalhes</a>
                         </td>
                     </tr>
                 @endforeach

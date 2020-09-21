@@ -16,7 +16,7 @@ class CreateFinalReportsTable extends Migration
         Schema::create('final_reports', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('internship_id')->nullable(false)->unsigned();
+            $table->bigInteger('internship_id')->unsigned();
             $table->foreign('internship_id')->references('id')->on('internships')->onUpdate('cascade')->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('date');
@@ -39,10 +39,10 @@ class CreateFinalReportsTable extends Migration
             $table->date('end_date');
             $table->string('approval_number', '8');
 
-            $table->bigInteger('coordinator_id')->nullable(false)->unsigned();
+            $table->bigInteger('coordinator_id')->unsigned();
             $table->foreign('coordinator_id')->references('id')->on('coordinators')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->text('observation')->nullable(true);
+            $table->text('observation')->nullable();
 
             $table->timestamps();
         });

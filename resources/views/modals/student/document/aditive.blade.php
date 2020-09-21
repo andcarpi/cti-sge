@@ -10,7 +10,7 @@
                 <h4 class="modal-title" id="documentAditiveTitle">Termo aditivo</h4>
             </div>
 
-            <form id="aditiveForm" action="{{ route('aluno.documento.aditivo') }}" target="_blank"
+            <form id="aditiveForm" action="{{ route('student.document.amendment') }}" target="_blank"
                   class="form-horizontal" method="get">
                 <div class="modal-body">
                     <p>Qual tipo de termo aditivo você precisa?</p>

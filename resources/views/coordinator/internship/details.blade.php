@@ -20,17 +20,17 @@
             @endif
 
             <div class="btn-group" style="display: inline-flex; margin: 0">
-                <a href="{{ route('coordenador.estagio.editar', ['id' => $internship->id]) }}"
+                <a href="{{ route('coordinator.internship.edit', ['id' => $internship->id]) }}"
                    class="btn btn-primary">Editar estágio</a>
 
-                <a href="{{ route('coordenador.estagio.aditivo', ['id' => $internship->id]) }}"
+                <a href="{{ route('coordinator.internship.amendment', ['id' => $internship->id]) }}"
                    class="btn btn-default">Termos aditivos</a>
 
                 @if($internship->state->id == \App\Models\State::OPEN)
-                    <a href="{{ route('coordenador.relatorio.bimestral.novo', ['i' => $internship->id]) }}"
+                    <a href="{{ route('coordinator.report.bimonthly.new', ['i' => $internship->id]) }}"
                        class="btn btn-success">Adicionar relatório bimestral</a>
 
-                    <a href="{{ route('coordenador.relatorio.final.novo', ['i' => $internship->id]) }}"
+                    <a href="{{ route('coordinator.report.final.new', ['i' => $internship->id]) }}"
                        class="btn btn-success">Adicionar relatório final</a>
 
                     <a href="#"

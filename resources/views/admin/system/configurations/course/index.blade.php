@@ -20,7 +20,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('admin.configuracao.curso.novo') }}"
+            <a id="addLink" href="{{ route('admin.config.course.new') }}"
                class="btn btn-success">Adicionar configuração geral</a>
 
             <table id="generalConfigurations" class="table table-bordered table-hover">
@@ -51,7 +51,7 @@
 
                         <td>
                             <a class="text-aqua"
-                               href="{{ route('admin.configuracao.curso.editar', ['id' => $config->id]) }}">Editar</a>
+                               href="{{ route('admin.config.course.edit', ['id' => $config->id]) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach

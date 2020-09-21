@@ -1,6 +1,66 @@
-@if($user->isCoordinator())
-    <p>Atualmente, você é coordenador de {{ $strCourses }}.</p>
-@endif
+<p>Atualmente, você é coordenador de {{ $strCourses }}.</p>
+
+<div class="row">
+    <div class="col-sm-3">
+        <a href="{{ route('coordinator.company.index') }}">
+            <div class="info-box">
+            <span class="info-box-icon bg-aqua">
+                <i class="fa fa-building"></i>
+            </span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Empresas</span>
+                    <span class="info-box-number">{{ $companyCount }}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-3">
+        <a href="{{ route('coordinator.internship.index') }}">
+            <div class="info-box">
+            <span class="info-box-icon bg-green">
+                <i class="fa fa-id-badge"></i>
+            </span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Estágios</span>
+                    <span class="info-box-number">{{ $internshipCount }}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-3">
+        <a href="{{ route('coordinator.job.index') }}">
+            <div class="info-box">
+            <span class="info-box-icon bg-gray">
+                <i class="fa fa-briefcase"></i>
+            </span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Trabalhos</span>
+                    <span class="info-box-number">{{ $jobCount }}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-sm-3">
+        <a href="{{ route('coordinator.report.index') }}">
+            <div class="info-box">
+            <span class="info-box-icon bg-red">
+                <i class="fa fa-book"></i>
+            </span>
+
+                <div class="info-box-content">
+                    <span class="info-box-text">Relatórios</span>
+                    <span class="info-box-number">{{ $reportCount }}</span>
+                </div>
+            </div>
+        </a>
+    </div>
+</div>
 
 @if(sizeof($requiringFinish) > 0)
     <div class="box box-default">
@@ -24,7 +84,7 @@
                         <td>{{ $internship->ra }} - {{ $internship->student->nome }}</td>
                         <td>{{ $internship->company->formatted_cpf_cnpj }} - {{ $internship->company->name }} {{ $internship->company->fantasy_name != null ? "({$internship->company->fantasy_name})" : '' }}</td>
                         <td>
-                            <a href="{{ route('coordenador.estagio.detalhes', ['id' => $internship->id]) }}">Detalhes</a>
+                            <a href="{{ route('coordinator.internship.show', ['id' => $internship->id]) }}">Detalhes</a>
                         </td>
                     </tr>
                 @endforeach
@@ -62,7 +122,7 @@
                         <td>{{ $proposal->description }}</td>
                         <td>{{ $proposal->deadline->format('d/m/Y') }}</td>
                         <td>
-                            <a href="{{ route('coordenador.proposta.detalhes', ['id' => $proposal->id]) }}">Detalhes</a>
+                            <a href="{{ route('coordinator.proposal.show', ['id' => $proposal->id]) }}">Detalhes</a>
                             |
                             <a href="#" onclick="approveProposalId('{{ $proposal->id }}'); return false;"
                                data-toggle="modal" class="text-green" data-target="#proposalApproveModal">Aprovar</a>

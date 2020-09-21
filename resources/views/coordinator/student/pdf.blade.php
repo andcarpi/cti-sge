@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <form action="{{ route('coordenador.aluno.gerarPDF') }}" class="form-horizontal" method="post">
+    <form action="{{ route('coordinator.student.gerarPDF') }}" class="form-horizontal" method="post">
         @csrf
 
         <div id="filters" class="nav-tabs-custom">

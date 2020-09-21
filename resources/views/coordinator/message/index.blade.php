@@ -29,7 +29,7 @@
         </div>
     @endif
 
-    <form action="{{ route('coordenador.mensagem.enviar') }}" class="form-horizontal" method="post">
+    <form action="{{ route('coordinator.message.enviar') }}" class="form-horizontal" method="post">
         @csrf
 
         <input type="hidden" id="inputUseFilters" name="useFilters" value="{{ old('useFilters') ?? 1 }}">
@@ -261,7 +261,7 @@
                     <p>Possuindo problemas na entrega do relatório bimestral, comunique a coordenadoria do curso por
                         email com urgência.</p>
 
-                    <p>Desconsidere essa mensagem caso já tenha protocolado seu relatório bimestral.</p>
+                    <p>Desconsidere essa mensagem caso já tenha protocolado seu relatório bimonthly.</p>
                 </div>
 
                 <div class="tab-pane {{ $p != null ? 'active' : '' }}" id="tab_internshipProposal">

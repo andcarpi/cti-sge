@@ -2,11 +2,10 @@
 
 namespace App\Mail;
 
+use App\Auth;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Auth;
 
 class BimestralReportMail extends Mailable
 {
@@ -36,7 +35,7 @@ class BimestralReportMail extends Mailable
         $from = 'informatica@cti.feb.unesp.br';
 
         return $this->from($from)
-            ->view('emails.bimestralReport')
+            ->view('emails.bimonthlyReport')
             ->subject($title)
             ->with([
                 'user' => $user,

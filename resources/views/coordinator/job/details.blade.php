@@ -13,7 +13,7 @@
     <div class="box box-default">
         <div class="box-body">
             <div class="btn-group" style="display: inline-flex; margin: 0">
-                <a href="{{ route('coordenador.trabalho.editar', ['id' => $job->id]) }}"
+                <a href="{{ route('coordinator.job.edit', ['id' => $job->id]) }}"
                    class="btn btn-primary">Editar trabalho</a>
 
                 @if($job->state->id == \App\Models\State::FINISHED)
@@ -97,7 +97,7 @@
 
             @if($job->state_id == \App\Models\State::FINISHED)
                 <div class="btn-group">
-                    <a href="{{ route('coordenador.trabalho.pdf', ['id' => $job->id]) }}" target="_blank"
+                    <a href="{{ route('coordinator.job.pdf', ['id' => $job->id]) }}" target="_blank"
                        class="btn btn-default">Imprimir relatório</a>
                 </div>
             @endif

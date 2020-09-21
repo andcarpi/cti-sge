@@ -90,15 +90,6 @@ class User extends Authenticatable
         return $this->morphMany(DatabaseNotification::class, 'notifiable')->orderBy('created_at', 'desc');
     }
 
-    public function coordinators()
-    {
-        return $this->hasMany(Coordinator::class)
-            ->where(function (Builder $query) {
-                return $query->whereDate('end_date', '>', Carbon::today())
-                    ->orWhereNull('end_date');
-            });
-    }
-
     public function isAdmin()
     {
         return $this->hasRole('admin');
@@ -116,6 +107,15 @@ class User extends Authenticatable
         }
 
         return $this->hasRole('coordinator');
+    }
+
+    public function coordinators()
+    {
+        return $this->hasMany(Coordinator::class)
+            ->where(function (Builder $query) {
+                return $query->whereDate('end_date', '>', Carbon::today())
+                    ->orWhereNull('end_date');
+            });
     }
 
     public function isCompany()

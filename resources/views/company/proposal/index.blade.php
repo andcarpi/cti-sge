@@ -22,7 +22,7 @@
 
     <div class="box box-default">
         <div class="box-body">
-            <a id="addLink" href="{{ route('empresa.proposta.novo') }}" class="btn btn-success">Nova proposta</a>
+            <a id="addLink" href="{{ route('company.proposal.new') }}" class="btn btn-success">Nova proposta</a>
 
             <table id="proposals" class="table table-bordered table-hover">
                 <thead>
@@ -51,10 +51,10 @@
                         @endif
 
                         <td>
-                            <a href="{{ route('empresa.proposta.detalhes', ['id' => $proposal->id]) }}">Detalhes</a>
+                            <a href="{{ route('company.proposal.show', ['id' => $proposal->id]) }}">Detalhes</a>
                             |
                             <a class="text-aqua"
-                               href="{{ route('empresa.proposta.editar', ['id' => $proposal->id]) }}">Editar</a>
+                               href="{{ route('company.proposal.edit', ['id' => $proposal->id]) }}">Editar</a>
                             |
                             <a href="#"
                                onclick="deleteProposalId('{{ $proposal->id }}'); return false;"

@@ -27,7 +27,7 @@ class RA implements Rule
      */
     public function passes($attribute, $value)
     {
-        if ((new Student())->isConnected()) {
+        if (Student::isConnected()) {
             try {
                 $s = Student::find($value);
 

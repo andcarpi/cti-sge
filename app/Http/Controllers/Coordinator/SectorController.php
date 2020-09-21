@@ -66,7 +66,7 @@ class SectorController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.setor.index')->with($params);
+        return redirect()->route('coordinator.company.sector.index')->with($params);
     }
 
     public function update($id, UpdateSector $request)
@@ -97,7 +97,7 @@ class SectorController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('coordenador.empresa.setor.index')->with($params);
+        return redirect()->route('coordinator.company.sector.index')->with($params);
     }
 
     public function destroy($id, DestroySector $request)
@@ -123,6 +123,6 @@ class SectorController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
 
-        return redirect()->route('coordenador.empresa.setor.index')->with($params);
+        return redirect()->route('coordinator.company.sector.index')->with($params);
     }
 }

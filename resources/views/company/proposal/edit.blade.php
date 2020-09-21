@@ -9,7 +9,7 @@
 @section('content')
     @include('modals.coordinator.cloneSchedule')
 
-    <form class="form-horizontal" action="{{ route('empresa.proposta.alterar', ['id' => $proposal->id]) }}" method="post">
+    <form class="form-horizontal" action="{{ route('company.proposal.update', ['id' => $proposal->id]) }}" method="post">
         @csrf
         @method('PUT')
 

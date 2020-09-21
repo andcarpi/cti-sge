@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-    <form class="form-horizontal" action="{{ route('admin.usuario.salvar') }}" method="post">
+    <form class="form-horizontal" action="{{ route('admin.user.store') }}" method="post">
         <div class="box box-default">
             <div class="box-header with-border">
                 <h3 class="box-title">Dados do usuário</h3>

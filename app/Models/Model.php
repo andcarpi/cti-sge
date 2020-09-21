@@ -21,10 +21,10 @@ abstract class Model extends \Illuminate\Database\Eloquent\Model
         $this->connection = config('database.default');
     }
 
-    public function isConnected()
+    public static function isConnected()
     {
         try {
-            DB::connection($this->connection)->getPdo();
+            DB::connection((new static())->connection)->getPdo();
             return true;
         } catch (PDOException $e) {
             return false;
@@ -34,7 +34,7 @@ abstract class Model extends \Illuminate\Database\Eloquent\Model
     /**
      * Prepare a date for array / JSON serialization.
      *
-     * @param  \DateTimeInterface  $date
+     * @param \DateTimeInterface $date
      * @return string
      */
     protected function serializeDate(DateTimeInterface $date)

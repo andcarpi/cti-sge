@@ -21,7 +21,7 @@
     <div class="box box-default">
         <div class="box-body">
             <a id="addLink"
-               href="{{ (isset($course)) ? route('admin.coordenador.novo', ['c' => $course->id]) : route('admin.coordenador.novo') }}"
+               href="{{ (isset($course)) ? route('admin.coordinator.new', ['c' => $course->id]) : route('admin.coordinator.new') }}"
                class="btn btn-success">Adicionar coordenador</a>
 
             <table id="coordinators" class="table table-bordered table-hover">
@@ -49,7 +49,7 @@
 
                         <td>
                             <a class="text-aqua"
-                               href="{{ route('admin.coordenador.editar', ['id' => $coordinator->id]) }}">Editar</a>
+                               href="{{ route('admin.coordinator.edit', ['id' => $coordinator->id]) }}">Editar</a>
                         </td>
                     </tr>
                 @endforeach

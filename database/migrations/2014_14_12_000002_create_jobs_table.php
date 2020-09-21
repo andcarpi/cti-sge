@@ -18,18 +18,18 @@ class CreateJobsTable extends Migration
 
             $table->string('ra', 7);
 
-            $table->string('ctps', 13)->nullable(true);
+            $table->string('ctps', 13)->nullable();
 
-            $table->bigInteger('company_id')->nullable(false)->unsigned();
+            $table->bigInteger('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('job_companies')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->bigInteger('sector_id')->nullable(false)->unsigned();
+            $table->bigInteger('sector_id')->unsigned();
             $table->foreign('sector_id')->references('id')->on('sectors')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->bigInteger('coordinator_id')->nullable(false)->unsigned();
+            $table->bigInteger('coordinator_id')->unsigned();
             $table->foreign('coordinator_id')->references('id')->on('coordinators')->onUpdate('cascade')->onDelete('cascade');
 
-            $table->bigInteger('state_id')->nullable(false)->unsigned();
+            $table->bigInteger('state_id')->unsigned();
             $table->foreign('state_id')->references('id')->on('states')->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('start_date');
@@ -38,10 +38,10 @@ class CreateJobsTable extends Migration
             $table->string('protocol', 7);
             $table->string('approval_number', '8');
 
-            $table->text('activities')->nullable(true);
-            $table->text('observation')->nullable(true);
-            $table->text('reason_to_cancel')->nullable(true);
-            $table->date('canceled_at')->nullable(true);
+            $table->text('activities')->nullable();
+            $table->text('observation')->nullable();
+            $table->text('reason_to_cancel')->nullable();
+            $table->date('canceled_at')->nullable();
 
             $table->boolean('active')->default(true);
 

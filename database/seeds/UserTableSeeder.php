@@ -13,6 +13,10 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
+        if (config('broker.useSSO')) {
+            return;
+        }
+
         $user = new User();
         $user->password = Hash::make('123456789');
         $user->email = 'dir-cti@feb.unesp.br';

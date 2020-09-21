@@ -16,12 +16,12 @@ class CreateSupervisorsTable extends Migration
         Schema::create('supervisors', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name', 50)->nullable(false);
-            $table->string('email', 50)->nullable(false);
-            $table->string('phone', 11)->nullable(false);
-            $table->boolean('active')->nullable(false)->default(true);
+            $table->string('name', 50);
+            $table->string('email', 50);
+            $table->string('phone', 11);
+            $table->boolean('active')->default(true);
 
-            $table->bigInteger('company_id')->nullable(false)->unsigned();
+            $table->bigInteger('company_id')->unsigned();
             $table->foreign('company_id')->references('id')->on('companies')->onUpdate('cascade')->onDelete('cascade');
 
             $table->timestamps();

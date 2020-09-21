@@ -9,7 +9,7 @@
 @section('content')
     @include('modals.coordinator.student.search')
 
-    <form class="form-horizontal" action="{{ route('coordenador.trabalho.alterar', ['id' => $job->id]) }}"
+    <form class="form-horizontal" action="{{ route('coordinator.job.update', ['id' => $job->id]) }}"
           method="post">
         @method('PUT')
         @csrf

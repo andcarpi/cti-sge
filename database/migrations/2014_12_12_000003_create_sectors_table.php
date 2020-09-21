@@ -16,9 +16,9 @@ class CreateSectorsTable extends Migration
         Schema::create('sectors', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->string('name', 50)->nullable(false)->unique();
-            $table->text('description')->nullable(true);
-            $table->boolean('active')->nullable(false)->default(true);
+            $table->string('name', 50)->unique();
+            $table->text('description')->nullable();
+            $table->boolean('active')->default(true);
 
             $table->timestamps();
         });

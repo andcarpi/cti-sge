@@ -287,7 +287,7 @@ class DocumentController extends Controller
 
         $fileName = "Relatório bimestral (1 via)";
 
-        $template = new TemplateProcessor(storage_path("app/public/docs/templates/etc/bimestral.docx"));
+        $template = new TemplateProcessor(storage_path("app/public/docs/templates/etc/bimonthly.docx"));
 
         $template->setValue('student', $student->nome);
         $template->setValue('course', $student->course->name);

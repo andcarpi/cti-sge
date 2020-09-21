@@ -16,7 +16,7 @@ class CreateBimestralReportsTable extends Migration
         Schema::create('bimestral_reports', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->bigInteger('internship_id')->nullable(false)->unsigned();
+            $table->bigInteger('internship_id')->unsigned();
             $table->foreign('internship_id')->references('id')->on('internships')->onUpdate('cascade')->onDelete('cascade');
 
             $table->date('date');

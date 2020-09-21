@@ -37,8 +37,8 @@ return [
         'sectors' => \App\Models\Sector::class,
         'supervisors' => \App\Models\Supervisor::class,
         'agreements' => \App\Models\Agreement::class,
-        'company_has_courses' => \App\Models\ManyToMany\CompanyCourse::class,
-        'company_has_sectors' => \App\Models\ManyToMany\CompanySector::class,
+        'company_has_courses' => \App\Models\ManyToMany\CompanyHasCourse::class,
+        'company_has_sectors' => \App\Models\ManyToMany\CompanyHasSector::class,
 
         'schedules' => \App\Models\Schedule::class,
         'states' => \App\Models\State::class,

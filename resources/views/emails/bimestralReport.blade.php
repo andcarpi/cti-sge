@@ -10,5 +10,5 @@ Caso o mesmo não seja entregue, estará sujeito às penalidades vigentes no có
 
     <p>Possuindo problemas na entrega do relatório bimestral, comunique a coordenadoria do curso por email com urgência.</p>
 
-    <p>Desconsidere essa mensagem caso já tenha protocolado seu relatório bimestral.</p>
+    <p>Desconsidere essa mensagem caso já tenha protocolado seu relatório bimonthly.</p>
 @endsection

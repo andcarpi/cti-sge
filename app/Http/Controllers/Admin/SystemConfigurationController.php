@@ -73,7 +73,7 @@ class SystemConfigurationController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.configuracao.parametros.index')->with($params);
+        return redirect()->route('admin.config.parameters.index')->with($params);
     }
 
     public function update($id, UpdateSystemConfiguration $request)
@@ -112,7 +112,7 @@ class SystemConfigurationController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.configuracao.parametros.index')->with($params);
+        return redirect()->route('admin.config.parameters.index')->with($params);
     }
 
     public function destroy($id, DestroySystemConfiguration $request)
@@ -137,6 +137,6 @@ class SystemConfigurationController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('admin.configuracao.parametros.index')->with($params);
+        return redirect()->route('admin.config.parameters.index')->with($params);
     }
 }

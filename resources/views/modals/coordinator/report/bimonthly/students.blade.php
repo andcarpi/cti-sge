@@ -10,7 +10,7 @@
                 <h4 class="modal-title" id="deleteModalTitle">Alunos que não entregaram relatório bimestral</h4>
             </div>
 
-            <form action="{{ route('coordenador.relatorio.bimestral.pdf') }}" target="_blank" method="post"
+            <form action="{{ route('coordinator.report.bimonthly.pdf') }}" target="_blank" method="post"
                   id="viewStudentsForm" class="form-horizontal">
                 @csrf
 

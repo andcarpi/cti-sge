@@ -5,8 +5,6 @@
     @yield('css')
 @stop
 
-@section('body_class', 'login-page')
-
 @section('body')
     <div class="login-box">
         <div class="login-logo">

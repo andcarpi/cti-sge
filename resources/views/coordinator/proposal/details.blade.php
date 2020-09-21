@@ -14,7 +14,7 @@
     <div class="box box-default">
         <div class="box-body">
             <div class="btn-group" style="display: inline-flex; margin: 0">
-                <a href="{{ route('coordenador.proposta.editar', ['id' => $proposal->id]) }}"
+                <a href="{{ route('coordinator.proposal.edit', ['id' => $proposal->id]) }}"
                    class="btn btn-primary">Editar proposta</a>
 
                 @if($proposal->approved_at == null && $proposal->reason_to_reject == null)
@@ -30,7 +30,7 @@
                        onclick="deleteProposalId('{{ $proposal->id }}'); return false;" data-toggle="modal"
                        class="btn btn-danger" data-target="#proposalDeleteModal">Excluir proposta</a>
                 @elseif($proposal->deadline >= \Carbon\Carbon::now() && $proposal->approved_at != null)
-                    <a href="{{ route('coordenador.mensagem.index', ['p' => $proposal->id]) }}"
+                    <a href="{{ route('coordinator.message.index', ['p' => $proposal->id]) }}"
                        class="btn btn-success">Enviar email</a>
                 @endif
             </div>

@@ -18,22 +18,22 @@
 
             <div class="btn-group" style="display: inline-flex; margin: 0">
                 @if($student->internship != null)
-                    <a href="{{ route('coordenador.estagio.editar', ['id' => $student->internship->id]) }}"
+                    <a href="{{ route('coordinator.internship.edit', ['id' => $student->internship->id]) }}"
                        class="btn btn-primary">Editar estágio</a>
 
-                    <a href="{{ route('coordenador.relatorio.bimestral.novo', ['i' => $student->internship->id]) }}"
+                    <a href="{{ route('coordinator.report.bimonthly.new', ['i' => $student->internship->id]) }}"
                        class="btn btn-success">Adicionar relatório bimestral</a>
 
-                    <a href="{{ route('coordenador.relatorio.final.novo', ['i' => $student->internship->id]) }}"
+                    <a href="{{ route('coordinator.report.final.new', ['i' => $student->internship->id]) }}"
                        class="btn btn-success">Adicionar relatório final</a>
                 @elseif($student->job == null)
-                    <a href="{{ route('coordenador.estagio.novo', ['s' => $student->matricula]) }}"
+                    <a href="{{ route('coordinator.internship.new', ['s' => $student->matricula]) }}"
                        class="btn btn-success">Novo estágio</a>
 
-                    <a href="{{ route('coordenador.trabalho.novo', ['s' => $student->matricula]) }}"
+                    <a href="{{ route('coordinator.job.new', ['s' => $student->matricula]) }}"
                        class="btn btn-success">Novo trabalho</a>
                 @else
-                    <a href="{{ route('coordenador.trabalho.editar', ['id' => $student->job->id]) }}"
+                    <a href="{{ route('coordinator.job.edit', ['id' => $student->job->id]) }}"
                        class="btn btn-primary">Editar trabalho</a>
                 @endif
             </div>
@@ -210,7 +210,7 @@
 
                 @if($student->job->state_id == \App\Models\State::FINISHED)
                     <div class="btn-group">
-                        <a href="{{ route('coordenador.trabalho.pdf', ['id' => $student->job->id]) }}" target="_blank"
+                        <a href="{{ route('coordinator.job.pdf', ['id' => $student->job->id]) }}" target="_blank"
                            class="btn btn-default">Imprimir relatório</a>
                     </div>
                 @endif

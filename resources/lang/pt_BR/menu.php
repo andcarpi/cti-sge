@@ -47,7 +47,7 @@ return [
 
     'reports' => 'Relatórios',
     'proposals' => 'Propostas',
-    'bimestral' => 'Bimestral',
+    'bimonthly' => 'Bimestral',
     'final' => 'Final',
 
     'students' => 'Alunos',

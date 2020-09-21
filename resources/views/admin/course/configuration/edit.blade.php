@@ -4,12 +4,12 @@
 
 @section('content_header')
     <h1>Editar configurações do curso <a
-            href="{{ route('admin.curso.detalhes', ['id' => $course->id]) }}">{{ $course->name }}</a></h1>
+            href="{{ route('admin.course.show', ['id' => $course->id]) }}">{{ $course->name }}</a></h1>
 @stop
 
 @section('content')
     <form class="form-horizontal" method="post"
-          action="{{ route('admin.curso.configuracao.alterar', [$config->course_id, $config->id]) }}">
+          action="{{ route('admin.course.config.update', ['id' => $config->course_id, 'id_config' => $config->id]) }}">
         @method('PUT')
         @csrf
 

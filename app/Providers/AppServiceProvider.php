@@ -53,7 +53,7 @@ class AppServiceProvider extends ServiceProvider
                 $menu->add([
                     'text' => $course->name,
                     'icon_color' => $color->name,
-                    'url' => route('admin.curso.detalhes', $course->id),
+                    'url' => route('admin.course.show', $course->id),
                 ]);
             }
         }

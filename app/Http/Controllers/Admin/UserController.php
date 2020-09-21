@@ -91,7 +91,7 @@ class UserController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.usuario.index')->with($params);
+        return redirect()->route('admin.user.index')->with($params);
     }
 
     public function update($id, UpdateUser $request)
@@ -128,7 +128,7 @@ class UserController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.usuario.index')->with($params);
+        return redirect()->route('admin.user.index')->with($params);
     }
 
     public function destroy($id, DestroyUser $request)
@@ -152,7 +152,7 @@ class UserController extends Controller
 
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Excluído com sucesso' : 'Erro ao excluir!';
-        return redirect()->route('admin.usuario.index')->with($params);
+        return redirect()->route('admin.user.index')->with($params);
     }
 
     public function updatePassword($id, ChangeUserPassword $request)
@@ -180,6 +180,6 @@ class UserController extends Controller
         $params['saved'] = $saved;
         $params['message'] = ($saved) ? 'Salvo com sucesso' : 'Erro ao salvar!';
 
-        return redirect()->route('admin.usuario.index')->with($params);
+        return redirect()->route('admin.user.index')->with($params);
     }
 }

@@ -10,7 +10,7 @@
     <div class="box box-default">
         <div class="box-body">
             <div class="btn-group" style="display: inline-flex; margin: 0">
-                <a href="{{ route('coordenador.trabalho.empresa.editar', ['id' => $company->id]) }}"
+                <a href="{{ route('coordinator.job.company.edit', ['id' => $company->id]) }}"
                    class="btn btn-primary">Editar empresa</a>
             </div>
 
