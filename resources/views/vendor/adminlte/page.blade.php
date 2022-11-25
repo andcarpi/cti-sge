@@ -108,7 +108,7 @@
 
                                                                 <li id="notification-{{ $notification->id }}">
                                                                     <form method="post"
-                                                                          action="{{ route('api.user.notificacao.lida', ['id' => $notification->id]) }}">
+                                                                          action="{{ route('api.user.notification.lida', ['id' => $notification->id]) }}">
                                                                         @method('PUT')
                                                                         @csrf
                                                                     </form>
