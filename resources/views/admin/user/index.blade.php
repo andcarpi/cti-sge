@@ -41,7 +41,11 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->phone }}</td>
+                        @if($user->roles->count() > 0)
                         <td>{{ $user->roles->pluck('friendly_name')[0] . (($user->hasRole('teacher') && $user->isCoordinator()) ? ' (Coordenador)' : '') }}</td>
+                        @else
+                            <td>-</td>
+                        @endif
 
                         <td>
                             @if($user->hasRole('teacher') || $user->hasRole('admin'))
