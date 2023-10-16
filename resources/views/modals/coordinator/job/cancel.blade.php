@@ -56,7 +56,7 @@
 
     <script type="text/javascript">
         function jobId(id) {
-            jQuery('#cancelForm').attr('action', `/coordenador/trabalho/${id}/cancelar`);
+            jQuery('#cancelForm').attr('action', `/sge/coordenador/trabalho/${id}/cancelar`);
         }
 
         function studentName(name) {
