@@ -56,7 +56,7 @@
 
     <script type="text/javascript">
         function internshipId(id) {
-            jQuery('#cancelForm').attr('action', `/coordenador/estagio/${id}/cancelar`);
+            jQuery('#cancelForm').attr('action', `/sge/coordenador/estagio/${id}/cancelar`);
         }
 
         function studentName(name) {
